@@ -1,0 +1,11 @@
+<div>
+    <h2>Client Dashboard</h2>
+    @for(feedback of clientFeedbacks;track $index){
+        <p>{{ feedback.feedbackType }}</p>
+        <p>{{ feedback.dateReceived }}</p>
+        <p>{{ feedback.detailedFeedback }}</p>
+        <p>{{ feedback.actionItem }}</p>
+        <p>{{ feedback.closureData }}</p>
+    }
+  </div>
+  
