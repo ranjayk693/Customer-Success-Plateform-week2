@@ -1,25 +1,61 @@
 import { Component } from '@angular/core';
-
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-client-dashboard',
   templateUrl: './client-dashboard.component.html',
-  styleUrl: './client-dashboard.component.css'
+  styleUrl: './client-dashboard.component.css',
 })
 export class ClientDashboardComponent {
+  clientFeedbacks: any[] = [
+    {
+      id: 1,
+      projectId: 'project1',
+      feedbackDate: '2024-02-29',
+      feedbackType: 'Complaint',
+      details: 'Some details',
+    },
+    {
+      id: 2,
+      projectId: 'project2',
+      feedbackDate: '2024-02-28',
+      feedbackType: 'Appreciation',
+      details: 'Some other details',
+    },
+  ];
 
-  clientFeedbacks:any=[];
+  feedbackForm:FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.feedbackForm = this.fb.group({
+      projectId: ['', Validators.required],
+      feedbackDate: ['', Validators.required],
+      feedbackType: ['', Validators.required],
+      details: ['', Validators.required]
+    });
+  }
+   
 
-  constructor() { 
-    this.clientFeedbacks=[{feedbackType:"Negative"},{dateReceived:15/10/2001},{detailedFeedback:"Detailed feedback test"},{actionItem:"Need improvement"},{closureData:18/10/2002}]
+  addFeedback(): void {
+    if (this.feedbackForm.valid) {
+      const newFeedback = this.feedbackForm.value;
+      this.clientFeedbacks.push(newFeedback);
+      this.feedbackForm.reset();
+    }
   }
 
-  ngOnInit(): void {
-    this.loadClientFeedbacks();
+
+  updateFeedback(feedback: any) {
+    const index = this.clientFeedbacks.findIndex((f) => f.id === feedback.id);
+    if (index !== -1) {
+      this.clientFeedbacks[index] = feedback;
+    }
   }
 
-  loadClientFeedbacks(): void {
-    // this.clientFeedbackService.getClientFeedbacks()
-    //   .subscribe(clientFeedbacks => this.clientFeedbacks = clientFeedbacks);
+  deleteFeedback(id: number) {
+    this.clientFeedbacks = this.clientFeedbacks.filter((f) => f.id !== id);
   }
 
 }
+  
+
+
+
