@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ServiceService } from '../../Services/service.service';
 
 @Component({
   selector: 'app-meeting-project-manager',
@@ -28,7 +29,7 @@ export class MeetingProjectManagerComponent {
 
   meetingMinuteForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: ServiceService) {
     this.meetingMinuteForm = this.fb.group({
       projectId: ['', Validators.required],
       meetingDate: ['', Validators.required],

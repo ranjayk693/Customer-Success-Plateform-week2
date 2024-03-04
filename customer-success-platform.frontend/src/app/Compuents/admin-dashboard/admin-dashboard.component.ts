@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ServiceService } from '../../Services/service.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -19,19 +20,26 @@ export class AdminDashboardComponent {
   ];
   IsProjectList: boolean = true;
   IsNewProject: boolean = false;
-  users: any = [{ name: 'Aadhya Sharma', role: 'Auditor' }];
+  IsProjectUpdate: boolean = false;
+  users: any = [{ name: 'Chintan Sir', role: 'Admin' }];
 
   onProjectClick() {
     this.IsProjectList = true;
     this.IsNewProject = false;
+    this.IsProjectUpdate = false;
   }
   onNewProject() {
     this.IsProjectList = false;
+    this.IsProjectUpdate = false;
     this.IsNewProject = true;
   }
-  toggleDropdown() {
-    this.showDropdown = !this.showDropdown;
+
+  onProjectUpdate() {
+    this.IsProjectList = false;
+    this.IsNewProject = false;
+    this.IsProjectUpdate = true;
   }
+
   logout() {
     // logout
   }

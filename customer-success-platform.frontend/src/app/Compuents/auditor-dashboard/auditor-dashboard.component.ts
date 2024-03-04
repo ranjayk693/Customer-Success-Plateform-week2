@@ -18,7 +18,7 @@ export class AuditorDashboardComponent {
   ];
   IsProjectList: boolean = true;
   IsNewProject: boolean = false;
-  users: any = [{ name: 'Aadhya Sharma', role: 'Auditor' }];
+  users: any = [{ name: 'Supreme Ranjan', role: 'Auditor' }];
 
   onProjectClick() {
     this.IsProjectList = true;
@@ -28,9 +28,7 @@ export class AuditorDashboardComponent {
     this.IsProjectList = false;
     this.IsNewProject = true;
   }
-  toggleDropdown() {
-    this.showDropdown = !this.showDropdown;
-  }
+
   logout() {
     // logout
   }

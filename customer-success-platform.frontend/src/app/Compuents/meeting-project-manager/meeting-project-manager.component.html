@@ -11,11 +11,11 @@
   <button type="submit">Add Meeting Minute</button>
 </form>
 
-<div *ngFor="let meetingMinute of meetingMinutes; let i = index">
-  <p>Project ID: {{ meetingMinute.projectId }}</p>
-  <p>Meeting Date: {{ meetingMinute.meetingDate }}</p>
-  <p>MoM Link: {{ meetingMinute.momLink }}</p>
-  <p>Duration: {{ meetingMinute.duration }}</p>
-  <p>Comments: {{ meetingMinute.comments }}</p>
-  <button (click)="deleteMeetingMinute(meetingMinute.id)">Delete</button>
-</div>
+@for(meetingMinute of meetingMinutes; track $index){
+<p>Project ID: {{ meetingMinute.projectId }}</p>
+<p>Meeting Date: {{ meetingMinute.meetingDate }}</p>
+<p>MoM Link: {{ meetingMinute.momLink }}</p>
+<p>Duration: {{ meetingMinute.duration }}</p>
+<p>Comments: {{ meetingMinute.comments }}</p>
+<button (click)="deleteMeetingMinute(meetingMinute.id)">Delete</button>
+}

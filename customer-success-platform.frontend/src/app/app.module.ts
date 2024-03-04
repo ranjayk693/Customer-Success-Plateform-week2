@@ -17,6 +17,7 @@ import { ProjectListComponent } from './Compuents/project-list/project-list.comp
 import { AuditorDashboardComponent } from './Compuents/auditor-dashboard/auditor-dashboard.component';
 import { ProjectManagerDashboardComponent } from './Compuents/project-manager-dashboard/project-manager-dashboard.component';
 import { LoginPageComponent } from './Compuents/login-page/login-page.component';
+import { ShowUpdateComponent } from './Compuents/show-update/show-update.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LoginPageComponent } from './Compuents/login-page/login-page.component'
     AuditorDashboardComponent,
     ProjectManagerDashboardComponent,
     LoginPageComponent,
+    ShowUpdateComponent,
   ],
   imports: [
     BrowserModule,

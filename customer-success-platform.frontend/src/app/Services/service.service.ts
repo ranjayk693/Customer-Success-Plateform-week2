@@ -115,4 +115,22 @@ export class ServiceService {
   deleteResourcesData(id: string): Observable<any> {
     return this.http.delete(`https://localhost:44347/api/app/resources/${id}`);
   }
+
+  /*CRUD operation to ADD the Project */
+  // This api call is used to add the data into it
+  getProjectData(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/project');
+  }
+  postProjectData(data: any): Observable<any> {
+    return this.http.post('https://localhost:44347/api/app/project', data);
+  }
+  putProjectData(id: string, data: any): Observable<any> {
+    return this.http.put(
+      `https://localhost:44347/api/app/project /${id}`,
+      data
+    );
+  }
+  deleteProjectData(id: string): Observable<any> {
+    return this.http.delete(`https://localhost:44347/api/app/project/${id}`);
+  }
 }

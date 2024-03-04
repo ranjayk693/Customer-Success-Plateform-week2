@@ -1,39 +1,37 @@
 <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="type">Type:</label>
-    <select formControlName="type" id="type">
-      <option value="Positive">Positive</option>
-      <option value="Negative">Negative</option>
-    </select>
-  </div>
-  <!-- <div>
-    <label for="dateReceived">Date Received:</label>
-    <input type="date" formControlName="dateReceived" id="dateReceived" />
-  </div> -->
-  <div>
-    <label for="detailedFeedback">Detailed Feedback:</label>
-    <textarea
-      formControlName="detailedFeedback"
-      id="detailedFeedback"
-      cols="37"
-    ></textarea>
-  </div>
-  <div>
-    <label for="actionTaken">Action Taken:</label>
-    <textarea
-      formControlName="actionTaken"
-      id="actionTaken"
-      [disabled]="true"
-    ></textarea>
-  </div>
-  <div>
-    <label for="closureDate">Closure Date:</label>
-    <input
-      type="date"
-      formControlName="closureDate"
-      id="closureDate"
-      [disabled]="true"
-    />
-  </div>
+  <section class="form-container">
+    <section class="form-type">
+      <label for="type">Type:</label>
+      <select formControlName="type" id="type">
+        <option value="Positive">Positive</option>
+        <option value="Negative">Negative</option>
+      </select>
+    </section>
+    <section class="feedback">
+      <label for="detailedFeedback">Detailed Feedback:</label>
+      <textarea
+        formControlName="detailedFeedback"
+        id="detailedFeedback"
+        cols="37"
+      ></textarea>
+    </section>
+    <section class="actionTaken">
+      <label for="actionTaken">Action Taken:</label>
+      <textarea
+        formControlName="actionTaken"
+        id="actionTaken"
+        [disabled]="true"
+      ></textarea>
+    </section>
+    <section>
+      <label for="closureDate">Closure Date:</label>
+      <input
+        type="date"
+        formControlName="closureDate"
+        id="closureDate"
+        [disabled]="true"
+      />
+    </section>
+  </section>
   <button type="submit">Submit</button>
 </form>

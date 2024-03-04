@@ -1,23 +1,31 @@
 <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="projectName">Project Name:</label>
-    <input type="text" id="projectName" formControlName="projectName" />
+    <label for="ProjectID">Project ID:</label>
+    <input
+      type="text"
+      id="ProjectID"
+      formControlName="id"
+      placeholder="enter the project ID"
+    />
   </div>
   <div>
-    <label for="clientName">Client Name:</label>
-    <input type="text" id="clientName" formControlName="clientName" />
+    <label for="project-name">Project Name:</label>
+    <input
+      type="text"
+      id="project-name"
+      formControlName="Name"
+      placeholder="enter the project Name"
+    />
   </div>
   <div>
-    <label for="clientEmail">Client Email:</label>
-    <input type="email" id="clientEmail" formControlName="clientEmail" />
+    <label for="Description">Description:</label>
+    <input
+      type="text"
+      id="Description"
+      formControlName="description"
+      placeholder="enter the project Description"
+    />
   </div>
-  <div>
-    <label for="projectManager">Project Manager:</label>
-    <select id="projectManager" formControlName="projectManager">
-      <option *ngFor="let manager of projectManagers" [value]="manager.id">
-        {{ manager.name }}
-      </option>
-    </select>
-  </div>
+
   <button type="submit">Submit</button>
 </form>

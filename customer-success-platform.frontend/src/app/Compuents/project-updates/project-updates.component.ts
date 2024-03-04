@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ServiceService } from '../../Services/service.service';
 
 @Component({
   selector: 'app-project-updates',
@@ -7,8 +8,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './project-updates.component.css',
 })
 export class ProjectUpdatesComponent {
+  // Forms to collect the data from the client
   projectUpdatesForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+
+  // Http injection for HTTP call
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: ServiceService
+  ) {
     this.projectUpdatesForm = this.formBuilder.group({
       projectId: ['', Validators.required],
       date: ['', Validators.required],
@@ -19,13 +26,22 @@ export class ProjectUpdatesComponent {
   ngOnInit() {}
 
   onSubmit() {
+    // Validation of form
     if (this.projectUpdatesForm.valid) {
-      // Process the form data (e.g., send it to a server)
       console.log(this.projectUpdatesForm.value);
+      //storing the value of form in project api
+      const project = {
+        projectId: this.projectUpdatesForm.get('projectId')!.value,
+        date: this.projectUpdatesForm.get('date')!.value,
+        generalUpdate: this.projectUpdatesForm.get('generalUpdates')!.value,
+      };
+
+      //post the data into the server with this post method
+      this.service.postProjectUpdateData(project).subscribe((response: any) => {
+        alert('Data is uploaded sucessfully');
+      });
     } else {
-      // Display validation errors to the user
-      console.log('Form is invalid');
+      alert('Invalid Form');
     }
   }
-  
 }

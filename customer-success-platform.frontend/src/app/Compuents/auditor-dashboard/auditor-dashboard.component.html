@@ -1,21 +1,18 @@
 <section class="container">
   <section class="header">
-    <h1>CS Customer Support</h1>
+    <h1>CS Customer Support(Auditor Portal)</h1>
     <section class="search-bar">
       <input type="text" placeholder="Search" />
       <button (click)="onNewProject()">Search</button>
     </section>
     <section class="user-info">
-      <span (click)="toggleDropdown()"
-        >{{ users[0].name }}({{ users[0].role }})
-      </span>
-
+      <span>{{ users[0].name }}({{ users[0].role }}) </span>
       <button (click)="logout()">Logout</button>
     </section>
   </section>
   <section class="content">
     <section class="side-nav">
-      <button (click)="onNewProject()">+</button> New Project
+      <button (click)="onNewProject()">New Project</button>
       <h2>Projects</h2>
       <ul>
         <li><a (click)="onProjectClick()">All Projects</a></li>

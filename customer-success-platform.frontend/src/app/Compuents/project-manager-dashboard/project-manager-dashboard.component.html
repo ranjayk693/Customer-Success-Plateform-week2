@@ -1,1 +1,32 @@
-<p>project-manager-dashboard works!</p>
+<section class="container">
+  <section class="header">
+    <h1>CS Customer Support(Project Manger)</h1>
+    <section class="search-bar">
+      <input type="text" placeholder="Search" />
+      <button>Search</button>
+    </section>
+    <section class="user-info">
+      <span>{{ users[0].name }}({{ users[0].role }}) </span>
+
+      <button (click)="logout()">Logout</button>
+    </section>
+  </section>
+  <section class="content">
+    <section class="side-nav">
+      <ul>
+        <li (click)="onMetting()">Add meeting</li>
+        <li (click)="onViewFeedback()">View Client Feedback</li>
+        <li onclick="onAddProjectUpdate()">Add Project Update</li>
+        <li>Add Employee</li>
+        <li><h2>Setting</h2></li>
+      </ul>
+    </section>
+    <section class="main-content">
+      @if(IsMeeting){
+      <app-meeting-project-manager></app-meeting-project-manager>
+      } @else{
+      <app-project-updates></app-project-updates>
+      }
+    </section>
+  </section>
+</section>

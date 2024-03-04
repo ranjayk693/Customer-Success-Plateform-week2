@@ -115,6 +115,14 @@ public class PlatformModule : AbpModule
             );
         });
 
+        context.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowOrigin",
+                builder => builder.AllowAnyOrigin()
+                                  .AllowAnyMethod()
+                                  .AllowAnyHeader());
+        });
+
         PreConfigure<OpenIddictBuilder>(builder =>
         {
             builder.AddValidation(options =>

@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Project ID</th>
+      <th>Date</th>
+      <th>General Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projects.length){ @for(project of projects ;track $index){
+    <td>{{ project.projectId }}</td>
+    <td>{{ project.date }}</td>
+    <td>{{ project.generalUpdate }}</td>
+    } }@else {
+    <td colspan="3">No data Found</td>
+    }
+  </tbody>
+</table>
