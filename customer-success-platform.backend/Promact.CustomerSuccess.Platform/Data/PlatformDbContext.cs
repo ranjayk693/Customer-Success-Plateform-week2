@@ -19,11 +19,14 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
     {
     }
 
-    public DbSet<Project> Projects { get; set; }
+    public DbSet<ApprovedTeam> approvedTeams { get; set; }
+    public DbSet<Resources> Resources { get; set; }
+    public DbSet<ProjectUpdate> ProjectUpdates { get; set; }
     public DbSet<Document> Documents { get; set; }
     public DbSet<DocumentVersion> DocumentVersions { get; set; }
     public DbSet<Organization> Organizations { get; set; }
     public DbSet<ClientFeedback> ClientFeedbacks { get; set; }
+    public DbSet<Project> Project { get; set; }
     public DbSet<ProjectBudget> ProjectBudgets { get; set; }
     public DbSet<PhaseMilestone> PhaseMilestones { get; set; }
     public DbSet<ProjectResources> ProjectResources { get; set; }
@@ -59,7 +62,7 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
         });
         builder.Entity<MeetingMinute>(MeetingMinute =>
         {            
-            MeetingMinute.ConfigureByConvention();
+            MeetingMinute.ConfigureByConvention();         //meeting minute entity
         });
         builder.Entity<Organization>(Organization =>
         {
@@ -69,6 +72,14 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
         {
             Project.ConfigureByConvention();
         });
+        builder.Entity<ProjectUpdate>(ProjectUpdate =>
+        {
+            ProjectUpdate.ConfigureByConvention();            //project update entity 
+        });
+        builder.Entity<ApprovedTeam>(ApprovedTeam =>
+        {
+            ApprovedTeam.ConfigureByConvention();            //project Approved Team 
+        });
         builder.Entity<ProjectBudget>(ProjectBudget =>
         {
             ProjectBudget.ConfigureByConvention();
@@ -76,6 +87,10 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
         builder.Entity<ProjectResources>(ProjectResources =>
         {
             ProjectResources.ConfigureByConvention();
+        });
+        builder.Entity<Resources>(Resources =>
+        {
+            Resources.ConfigureByConvention();        //Resources entity
         });
         builder.Entity<RiskProfile>(RiskProfile =>
         {
@@ -91,7 +106,7 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
         });
         builder.Entity<ClientFeedback>(ClientFeedback =>
         {
-            ClientFeedback.ConfigureByConvention();
+            ClientFeedback.ConfigureByConvention();       //client feedback entity
         });
         builder.Entity<Document>(Document =>
         {

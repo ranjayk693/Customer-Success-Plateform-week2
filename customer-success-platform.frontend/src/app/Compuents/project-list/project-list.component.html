@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Started On</th>
+      <th>Status</th>
+      <th>Project Manager</th>
+      <th>Members</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.projectName }}</td>
+      <td>{{ project.startedOn }}</td>
+      <td>{{ project.status }}</td>
+      <td>{{ project.projectManager }}</td>
+      <td>{{ project.members }}</td>
+    </tr>
+  </tbody>
+</table>

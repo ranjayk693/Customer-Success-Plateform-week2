@@ -1,0 +1,37 @@
+<section class="container">
+  <section class="header">
+    <h1>CS Customer Support</h1>
+    <section class="search-bar">
+      <input type="text" placeholder="Search" />
+      <button (click)="onNewProject()">Search</button>
+    </section>
+    <section class="user-info">
+      <span (click)="toggleDropdown()"
+        >{{ users[0].name }}({{ users[0].role }})
+      </span>
+
+      <button (click)="logout()">Logout</button>
+    </section>
+  </section>
+  <section class="content">
+    <section class="side-nav">
+      <button (click)="onNewProject()">+</button> New Project
+      <h2>Projects</h2>
+      <ul>
+        <li><a (click)="onProjectClick()">All Projects</a></li>
+        <li>In Progress</li>
+        <li>Completed</li>
+        <li>Hold</li>
+      </ul>
+      <h2>Project Managers</h2>
+      <ul>
+        <li><button>+</button> Employees</li>
+      </ul>
+      <h2>Setting</h2>
+    </section>
+    <section class="main-content">
+      <app-create-project *ngIf="IsNewProject"></app-create-project>
+      <app-project-list *ngIf="!IsNewProject"></app-project-list>
+    </section>
+  </section>
+</section>

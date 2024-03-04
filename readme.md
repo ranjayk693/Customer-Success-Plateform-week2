@@ -11,3 +11,8 @@
 1Feb
 
 1. Did crud opertion in ClientFeedback
+
+3Feb
+
+1. Perform all the crud operation
+2. Work on frontend part for admin, auditor and client feedback

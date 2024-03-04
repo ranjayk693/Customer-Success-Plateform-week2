@@ -1,0 +1,23 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="projectName">Project Name:</label>
+    <input type="text" id="projectName" formControlName="projectName" />
+  </div>
+  <div>
+    <label for="clientName">Client Name:</label>
+    <input type="text" id="clientName" formControlName="clientName" />
+  </div>
+  <div>
+    <label for="clientEmail">Client Email:</label>
+    <input type="email" id="clientEmail" formControlName="clientEmail" />
+  </div>
+  <div>
+    <label for="projectManager">Project Manager:</label>
+    <select id="projectManager" formControlName="projectManager">
+      <option *ngFor="let manager of projectManagers" [value]="manager.id">
+        {{ manager.name }}
+      </option>
+    </select>
+  </div>
+  <button type="submit">Submit</button>
+</form>

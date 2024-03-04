@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <a>Dashboard</a>
+    <!-- Add more links here -->
+  </div>
+  <div class="navbar-right">
+    <div class="user-profile">
+      <span>{{ userName }}</span>
+      <div class="dropdown">
+        <button class="dropbtn" (click)="toggleDropdown()">▼</button>
+        <div class="dropdown-content" [hidden]="!showDropdown">
+          <a href="#" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="meeting">
+  <app-client-meeting></app-client-meeting>
+</section>
+
+<section class="feedback">
+  <app-client-feedback></app-client-feedback>
+</section>

@@ -1,0 +1,16 @@
+<form [formGroup]="projectUpdatesForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="projectId">Project ID:</label>
+      <input type="text" id="projectId" formControlName="projectId" />
+    </div>
+    <div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" formControlName="date" />
+    </div>
+    <div>
+      <label for="generalUpdates">General Updates:</label>
+      <textarea id="generalUpdates" formControlName="generalUpdates"></textarea>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  

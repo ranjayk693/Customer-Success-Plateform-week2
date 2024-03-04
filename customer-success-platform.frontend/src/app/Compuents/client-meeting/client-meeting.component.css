@@ -1,0 +1,34 @@
+/* CSS for the meeting details */
+div {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+div p {
+  margin: 5px 0;
+}
+
+div button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+div button:hover {
+  background-color: #c82333;
+}
+
+form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
