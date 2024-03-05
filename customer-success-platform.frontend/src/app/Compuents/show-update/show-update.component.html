@@ -8,9 +8,11 @@
   </thead>
   <tbody>
     @if(projects.length){ @for(project of projects ;track $index){
-    <td>{{ project.projectId }}</td>
-    <td>{{ project.date }}</td>
-    <td>{{ project.generalUpdate }}</td>
+    <tr>
+      <td>{{ project.projectId }}</td>
+      <td>{{ project.date }}</td>
+      <td>{{ project.generalUpdate }}</td>
+    </tr>
     } }@else {
     <td colspan="3">No data Found</td>
     }

@@ -8,20 +8,11 @@ import { ServiceService } from '../../Services/service.service';
   styleUrl: './client-meeting.component.css',
 })
 export class ClientMeetingComponent {
-  meetingMinutes: any[] = [
-    {
-      id: 1,
-      projectId: 'project1',
-      meetingDate: '2024-02-29',
-      momLink: 'Some link',
-      duration: '45 min',
-      comments: 'Some comments',
-    },
-  ];
+  meetingMinutes: any[] = [];
 
   constructor(private service: ServiceService) {
     this.service.getMeetingMinuteData().subscribe((response) => {
-      console.log(response);
+      this.meetingMinutes=response.item;
     });
   }
 }

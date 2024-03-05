@@ -1,5 +1,9 @@
 <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
   <section class="form-container">
+    <section>
+      <label for="projectID">Project ID</label>
+      <input type="text" id="projectID" formControlName="ProjectId" placeholder="Enter your Project ID" />
+    </section>
     <section class="form-type">
       <label for="type">Type:</label>
       <select formControlName="type" id="type">
@@ -17,11 +21,7 @@
     </section>
     <section class="actionTaken">
       <label for="actionTaken">Action Taken:</label>
-      <textarea
-        formControlName="actionTaken"
-        id="actionTaken"
-        [disabled]="true"
-      ></textarea>
+      <textarea formControlName="actionTaken" id="actionTaken"></textarea>
     </section>
     <section>
       <label for="closureDate">Closure Date:</label>

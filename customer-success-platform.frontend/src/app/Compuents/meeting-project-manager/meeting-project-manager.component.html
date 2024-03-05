@@ -1,5 +1,10 @@
+<!-- Form Data For metting minute in which the meeting is going to schedule-->
 <form [formGroup]="meetingMinuteForm" (submit)="addMeetingMinute()">
-  <input type="text" formControlName="projectId" placeholder="Project ID" />
+  <input
+    type="text"
+    formControlName="projectId"
+    placeholder="Project the Valid Project ID"
+  />
   <input type="date" formControlName="meetingDate" placeholder="Meeting Date" />
   <input type="text" formControlName="momLink" placeholder="MoM Link" />
   <input
@@ -11,11 +16,15 @@
   <button type="submit">Add Meeting Minute</button>
 </form>
 
-@for(meetingMinute of meetingMinutes; track $index){
+<!-- If the data is Get from the database then display all the data element -->
+@if(meetingMinutes.length){ @for(meetingMinute of meetingMinutes; track $index){
 <p>Project ID: {{ meetingMinute.projectId }}</p>
 <p>Meeting Date: {{ meetingMinute.meetingDate }}</p>
 <p>MoM Link: {{ meetingMinute.momLink }}</p>
 <p>Duration: {{ meetingMinute.duration }}</p>
 <p>Comments: {{ meetingMinute.comments }}</p>
 <button (click)="deleteMeetingMinute(meetingMinute.id)">Delete</button>
+} } @else {
+<!-- If no data is present then it will display the simple text -->
+<h2>No metting is Scheduled</h2>
 }

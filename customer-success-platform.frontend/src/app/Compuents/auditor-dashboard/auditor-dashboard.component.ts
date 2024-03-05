@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AuditorDashboardComponent {
   showDropdown = false;
+
+  // HardCoded data
   projects: any = [
     {
       projectName: 'Food on time',
@@ -18,15 +20,24 @@ export class AuditorDashboardComponent {
   ];
   IsProjectList: boolean = true;
   IsNewProject: boolean = false;
+  IsResources: boolean = false;
   users: any = [{ name: 'Supreme Ranjan', role: 'Auditor' }];
 
   onProjectClick() {
-    this.IsProjectList = true;
+    this.IsResources = false;
     this.IsNewProject = false;
+    this.IsProjectList = true;
   }
   onNewProject() {
     this.IsProjectList = false;
+    this.IsResources = false;
     this.IsNewProject = true;
+  }
+
+  OnResources() {
+    this.IsProjectList = false;
+    this.IsNewProject = false;
+    this.IsResources = true;
   }
 
   logout() {

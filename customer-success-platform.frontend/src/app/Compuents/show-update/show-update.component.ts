@@ -13,6 +13,7 @@ export class ShowUpdateComponent {
   constructor(private service: ServiceService) {
     this.service.getProjectUpdateData().subscribe((response: any) => {
       this.projects = response.items;
+      console.log(response);
     });
   }
 }

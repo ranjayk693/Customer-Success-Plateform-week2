@@ -1,0 +1,33 @@
+<div class="table-container">
+  <table class="feedback-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Project ID</th>
+        <th>Feedback Type</th>
+        <th>Date Received</th>
+        <th>Details</th>
+        <th>Action Taken</th>
+        <th>Closure Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if(clientfeedback.length){ @for(feedback of clientfeedback ;track
+      $index){
+      <tr>
+        <td>{{ feedback.id }}</td>
+        <td>{{ feedback.projectId }}</td>
+        <td>{{ feedback.feedbackType }}</td>
+        <td>{{ feedback.dateReceived }}</td>
+        <td>{{ feedback.details }}</td>
+        <td>{{ feedback.actionTaken }}</td>
+        <td>{{ feedback.closureDate }}</td>
+      </tr>
+      } } @else {
+      <tr>
+        <td colspan="7">No Data Found In Database</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

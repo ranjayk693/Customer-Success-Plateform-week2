@@ -5,9 +5,10 @@
       <input type="text" placeholder="Search" />
       <button>Search</button>
     </section>
+
+    <!-- header option for logout and name of the manger -->
     <section class="user-info">
       <span>{{ users[0].name }}({{ users[0].role }}) </span>
-
       <button (click)="logout()">Logout</button>
     </section>
   </section>
@@ -16,16 +17,21 @@
       <ul>
         <li (click)="onMetting()">Add meeting</li>
         <li (click)="onViewFeedback()">View Client Feedback</li>
-        <li onclick="onAddProjectUpdate()">Add Project Update</li>
+        <li (click)="onAddProjectUpdate()">Add Project Update</li>
         <li>Add Employee</li>
         <li><h2>Setting</h2></li>
       </ul>
     </section>
     <section class="main-content">
+      <!-- Showing the main Compunent By default it is showing Add meeting form -->
       @if(IsMeeting){
       <app-meeting-project-manager></app-meeting-project-manager>
-      } @else{
+      } @else if(IsProjectUpdate){
       <app-project-updates></app-project-updates>
+      }@else if(IsFeedback){
+      <app-show-client-feedback></app-show-client-feedback>
+      } @else{
+      <!-- Nothing to do here -->
       }
     </section>
   </section>

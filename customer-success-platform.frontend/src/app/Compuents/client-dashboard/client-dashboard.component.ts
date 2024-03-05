@@ -6,15 +6,29 @@ import { Component } from '@angular/core';
   styleUrl: './client-dashboard.component.css',
 })
 export class ClientDashboardComponent {
-  constructor() {}
-  userName = 'Ranjay';
-  showDropdown = false;
-  logout(): void {
-    // Perform logout actions here, such as clearing session data or redirecting to the login page
-    console.log('Logout clicked');
+  logout() {
+    //implimentation for logout
   }
 
-  toggleDropdown(): void {
-    this.showDropdown = !this.showDropdown;
+  IsUpdate: boolean = true;
+  IsMeeting: boolean = false;
+  IsFeedback: boolean = false;
+
+  onMeeting() {
+    this.IsUpdate = false;
+    this.IsFeedback = false;
+    this.IsMeeting = true;
+  }
+
+  onFeedback() {
+    this.IsUpdate = false;
+    this.IsMeeting = false;
+    this.IsFeedback = true;
+  }
+
+  CheckProjectUpdate() {
+    this.IsFeedback = false;
+    this.IsMeeting = false;
+    this.IsUpdate = true;
   }
 }

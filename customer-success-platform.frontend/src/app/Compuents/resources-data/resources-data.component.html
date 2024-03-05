@@ -1,0 +1,23 @@
+<form [formGroup]="resourceForm" (submit)="onSubmit()">
+  <label for="resourceName">Resource Name</label>
+  <input
+    type="text"
+    formControlName="resourceName"
+    id="resourceName"
+    required
+  />
+
+  <label for="role">Role</label>
+  <input type="text" formControlName="role" id="role" required />
+
+  <label for="startDate">Start Date</label>
+  <input type="date" formControlName="startDate" id="startDate" required />
+
+  <label for="endDate">End Date</label>
+  <input type="date" formControlName="endDate" id="endDate" required />
+
+  <label for="comment">Comment</label>
+  <textarea formControlName="comment" id="comment"></textarea>
+
+  <button type="submit">Submit</button>
+</form>

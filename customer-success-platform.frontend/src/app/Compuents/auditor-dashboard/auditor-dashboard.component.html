@@ -15,10 +15,8 @@
       <button (click)="onNewProject()">New Project</button>
       <h2>Projects</h2>
       <ul>
-        <li><a (click)="onProjectClick()">All Projects</a></li>
-        <li>In Progress</li>
-        <li>Completed</li>
-        <li>Hold</li>
+        <li (click)="onProjectClick()">All Projects</li>
+        <li (click)="OnResources()">Resources</li>
       </ul>
       <h2>Project Managers</h2>
       <ul>
@@ -28,7 +26,8 @@
     </section>
     <section class="main-content">
       <app-create-project *ngIf="IsNewProject"></app-create-project>
-      <app-project-list *ngIf="!IsNewProject"></app-project-list>
+      <app-project-list *ngIf="IsProjectList"></app-project-list>
+      <app-resources-data *ngIf="IsResources"></app-resources-data>
     </section>
   </section>
 </section>

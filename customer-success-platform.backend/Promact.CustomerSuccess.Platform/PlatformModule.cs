@@ -355,6 +355,7 @@ public class PlatformModule : AbpModule
 
         if (env.IsDevelopment())
         {
+            app.UseCors("AllowOrigin");
             app.UseDeveloperExceptionPage();
         }
 

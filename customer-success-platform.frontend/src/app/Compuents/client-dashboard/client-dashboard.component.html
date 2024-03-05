@@ -1,25 +1,34 @@
-<nav class="navbar">
-  <div class="navbar-left">
-    <a>Dashboard</a>
-    <!-- Add more links here -->
-  </div>
-  <div class="navbar-right">
-    <div class="user-profile">
-      <span>{{ userName }}</span>
-      <div class="dropdown">
-        <button class="dropbtn" (click)="toggleDropdown()">▼</button>
-        <div class="dropdown-content" [hidden]="!showDropdown">
-          <a href="#" (click)="logout()">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
+<section class="container">
+  <section class="header">
+    <h1>CS Customer Support(Client Portal)</h1>
+    <section class="search-bar">
+      <input type="text" placeholder="Search" />
+      <button>Search</button>
+    </section>
 
-<section class="meeting">
-  <app-client-meeting></app-client-meeting>
-</section>
-
-<section class="feedback">
-  <app-client-feedback></app-client-feedback>
+    <!-- header option for logout and name of the manger -->
+    <section class="user-info">
+      <span>Ranjay Kumar </span>
+      <button (click)="logout()">Logout</button>
+    </section>
+  </section>
+  <section class="content">
+    <section class="side-nav">
+      <ul>
+        <li (click)="CheckProjectUpdate()">Check Project Update</li>
+        <li (click)="onMeeting()">Check Meeting</li>
+        <li (click)="onFeedback()">Give Feedback</li>
+        <li><h2>Setting</h2></li>
+      </ul>
+    </section>
+    <section class="main-content">
+      @if(IsUpdate){
+      <app-show-update></app-show-update>
+      }@else if(IsMeeting){
+      <app-client-meeting></app-client-meeting>
+      } @else if(IsFeedback){
+      <app-client-feedback></app-client-feedback>
+      }@else { }
+    </section>
+  </section>
 </section>

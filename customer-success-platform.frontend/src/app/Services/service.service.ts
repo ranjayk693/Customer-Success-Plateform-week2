@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ServiceService {
+  // Injecting the HttpClient
   constructor(private http: HttpClient) {}
 
   /*CRUD operation with ApprovedData*/

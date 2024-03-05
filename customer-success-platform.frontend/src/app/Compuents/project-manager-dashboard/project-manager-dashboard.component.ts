@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceService } from '../../Services/service.service';
 
 @Component({
   selector: 'app-project-manager-dashboard',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './project-manager-dashboard.component.css',
 })
 export class ProjectManagerDashboardComponent {
-  showDropdown = false;
+  // HardCoded Data as not required according to documentation
   projects: any = [
     {
       projectName: 'Food on time',
@@ -16,11 +17,16 @@ export class ProjectManagerDashboardComponent {
       members: 6,
     },
   ];
+
+  // Boolean Value to display the data
   IsMeeting: boolean = true;
   IsFeedback: boolean = false;
   IsProjectUpdate: boolean = false;
+
+  // Harcoded role as authtication part is remaining
   users: any = [{ name: 'Dipa Di', role: 'project Manager' }];
 
+  // Making the meeting boolean value true and for rest it false
   onMetting() {
     this.IsFeedback = false;
     this.IsProjectUpdate = false;
@@ -28,7 +34,6 @@ export class ProjectManagerDashboardComponent {
   }
 
   onViewFeedback(): any {
-    //view feedbacked
     this.IsMeeting = false;
     this.IsProjectUpdate = false;
     this.IsFeedback = true;
