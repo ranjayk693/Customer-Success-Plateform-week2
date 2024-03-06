@@ -13,3 +13,10 @@ td {
 th {
   background-color: #f2f2f2;
 }
+
+button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 10px;
+}

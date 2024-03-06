@@ -37,9 +37,14 @@ export class ProjectUpdatesComponent {
       };
 
       //post the data into the server with this post method
-      this.service.postProjectUpdateData(project).subscribe((response: any) => {
-        alert('Data is uploaded sucessfully');
-      });
+      this.service.postProjectUpdateData(project).subscribe(
+        (response: any) => {
+          alert('Data is uploaded sucessfully');
+        },
+        (error) => {
+          alert('Data is faild to updated due to invalid project id');
+        }
+      );
     } else {
       alert('Invalid Form');
     }

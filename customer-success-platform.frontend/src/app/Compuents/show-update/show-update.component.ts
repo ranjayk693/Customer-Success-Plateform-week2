@@ -11,9 +11,23 @@ export class ShowUpdateComponent {
 
   //service injection
   constructor(private service: ServiceService) {
-    this.service.getProjectUpdateData().subscribe((response: any) => {
-      this.projects = response.items;
-      console.log(response);
-    });
+    this.service.getProjectUpdateData().subscribe(
+      (response: any) => {
+        this.projects = response.items;
+      },
+      (error) => {
+        alert('Something went wrong while fetching the data from server');
+      }
+    );
+  }
+
+  onDeleteItem(id: string) {
+    if (confirm('Are you sure')) {
+      this.service.deleteProjectUpdateData(id).subscribe((response) => {
+        this.projects = this.projects.filter((item) => {
+          item.id !== id;
+        });
+      });
+    }
   }
 }

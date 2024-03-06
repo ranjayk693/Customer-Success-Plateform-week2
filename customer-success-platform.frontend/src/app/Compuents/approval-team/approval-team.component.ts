@@ -34,6 +34,7 @@ export class ApprovalTeamComponent {
         phase: this.resourceForm.get('phase')!.value,
       };
 
+      // Post Data
       this.service.postApproveTeamData(data).subscribe(
         (response) => {
           alert('Data is sent sucessfully');
@@ -43,7 +44,7 @@ export class ApprovalTeamComponent {
         }
       );
     } else {
-      // Form is invalid, display error messages
+      alert('Please enter the valid input');
     }
   }
 }

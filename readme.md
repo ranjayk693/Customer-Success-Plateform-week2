@@ -14,5 +14,17 @@
 
 3Feb
 
-1. Perform all the crud operation
+1. Perform all the crud operation in backend
 2. Work on frontend part for admin, auditor and client feedback
+
+4feb
+
+1. Create the functinality of project update and changes some database configration
+
+5Feb
+
+1. Integrate all the api in angular and testing in frontend
+
+6 Feb
+
+1. Complete the frontend part with database

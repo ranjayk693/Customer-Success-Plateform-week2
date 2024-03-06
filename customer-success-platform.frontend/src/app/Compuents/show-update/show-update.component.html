@@ -4,6 +4,7 @@
       <th>Project ID</th>
       <th>Date</th>
       <th>General Update</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -12,9 +13,10 @@
       <td>{{ project.projectId }}</td>
       <td>{{ project.date }}</td>
       <td>{{ project.generalUpdate }}</td>
+      <td><button (click)="onDeleteItem(project.id)">Delete</button></td>
     </tr>
     } }@else {
-    <td colspan="3">No data Found</td>
+    <td colspan="4">No data Found</td>
     }
   </tbody>
 </table>
