@@ -1,92 +1,42 @@
-/* CSS for the form */
-form {
+.form-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border: 1px solid red;
+  width: 400px;
 }
 
-form label {
+.form-container section {
+  margin-bottom: 10px;
+}
+
+label {
   font-weight: bold;
 }
 
-form input[type="text"],
-form input[type="date"],
-form select {
-  padding: 5px;
-  width: 8vw;
+input[type="text"],
+select,
+textarea,
+input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   box-sizing: border-box;
 }
 
-button {
-  width: 100px;
-  border-radius: 5px;
-}
-
 textarea {
+  height: 100px;
   resize: none;
 }
 
-form button {
-  padding: 10px;
-  background-color: #007bff;
+button[type="submit"] {
+  background-color: #4caf50;
   color: white;
+  padding: 10px 20px;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-form button:hover {
-  background-color: #0056b3;
-}
-
-/* CSS for the feedback table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table th,
-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-table tr:hover {
-  background-color: #ddd;
-}
-
-.actionTaken {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  /* border: 1px solid red; */
-  gap: 20px;
-}
-
-.feedback {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.form-type {
-  display: flex;
-  align-items: center;
-}
-
-.form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 3vw;
+button[type="submit"]:hover {
+  background-color: #45a049;
 }

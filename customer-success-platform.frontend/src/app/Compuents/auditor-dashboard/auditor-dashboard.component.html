@@ -15,10 +15,14 @@
       <button (click)="onNewProject()">New Project</button>
       <h2>Projects</h2>
       <ul>
-        <li (click)="onProjectClick()">All Projects</li>
-        <li (click)="OnResources()">Resources</li>
+        <li (click)="onShowResources()">Show Resources</li>
+        <li (click)="OnResources()">Add Resources</li>
+        <li (click)="onShowApproveTeam()">Show Approve Team</li>
+        <li (click)="onApproval()">Add Approve Team</li>
+        <li (click)="onShowClientFeedback()">Show Client Feedback</li>
+        <li (click)="onShowProjectUpdate()">Show project update</li>
       </ul>
-      <h2>Project Managers</h2>
+      <h2>Add employee</h2>
       <ul>
         <li><button>+</button> Employees</li>
       </ul>
@@ -26,8 +30,14 @@
     </section>
     <section class="main-content">
       <app-create-project *ngIf="IsNewProject"></app-create-project>
-      <app-project-list *ngIf="IsProjectList"></app-project-list>
       <app-resources-data *ngIf="IsResources"></app-resources-data>
+      <app-approval-team *ngIf="IsApproval"></app-approval-team>
+      <app-view-approve-team *ngIf="IsShowApproveTeam"></app-view-approve-team>
+      <app-view-resources *ngIf="ViewResources"></app-view-resources>
+      <app-show-client-feedback
+        *ngIf="IsClientfeedback"
+      ></app-show-client-feedback>
+      <app-show-update *ngIf="IsViewProjectUpdate"></app-show-update>
     </section>
   </section>
 </section>

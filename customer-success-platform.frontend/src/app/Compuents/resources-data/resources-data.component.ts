@@ -12,6 +12,7 @@ export class ResourcesDataComponent {
 
   constructor(private fb: FormBuilder, private service: ServiceService) {
     this.resourceForm = this.fb.group({
+      projectId: ['', Validators.required],
       resourceName: ['', Validators.required],
       role: ['', Validators.required],
       startDate: ['', Validators.required],
@@ -23,6 +24,7 @@ export class ResourcesDataComponent {
   onSubmit(): void {
     if (this.resourceForm.valid) {
       const data = {
+        projectId: this.resourceForm.get('projectId')!.value,
         resourceName: this.resourceForm.get('resourceName')!.value,
         role: this.resourceForm.get('role')!.value,
         startDate: this.resourceForm.get('startDate')!.value,

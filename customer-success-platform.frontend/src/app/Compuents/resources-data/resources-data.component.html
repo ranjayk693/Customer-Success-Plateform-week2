@@ -1,14 +1,30 @@
 <form [formGroup]="resourceForm" (submit)="onSubmit()">
+  <label for="ProjectId">ProjectId</label>
+  <input
+    type="text"
+    formControlName="projectId"
+    id="ProjectId"
+    required
+    placeholder="Enter the Project ID"
+  />
+
   <label for="resourceName">Resource Name</label>
   <input
     type="text"
     formControlName="resourceName"
     id="resourceName"
     required
+    placeholder="Enter the resource name"
   />
 
   <label for="role">Role</label>
-  <input type="text" formControlName="role" id="role" required />
+  <input
+    type="text"
+    formControlName="role"
+    id="role"
+    required
+    placeholder="Enter the role"
+  />
 
   <label for="startDate">Start Date</label>
   <input type="date" formControlName="startDate" id="startDate" required />
@@ -17,7 +33,11 @@
   <input type="date" formControlName="endDate" id="endDate" required />
 
   <label for="comment">Comment</label>
-  <textarea formControlName="comment" id="comment"></textarea>
+  <textarea
+    formControlName="comment"
+    id="comment"
+    placeholder="Enter the comment"
+  ></textarea>
 
   <button type="submit">Submit</button>
 </form>

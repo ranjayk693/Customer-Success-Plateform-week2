@@ -8,36 +8,84 @@ import { ServiceService } from '../../Services/service.service';
   styleUrl: './admin-dashboard.component.css',
 })
 export class AdminDashboardComponent {
-  showDropdown = false;
-  projects: any = [
-    {
-      projectName: 'Food on time',
-      startedOn: '12 Feb 24',
-      status: 'On going',
-      projectManager: 'Dipa Manjumdar',
-      members: 6,
-    },
-  ];
-  IsProjectList: boolean = true;
+  ViewResources: boolean = true;
   IsNewProject: boolean = false;
-  IsProjectUpdate: boolean = false;
-  users: any = [{ name: 'Chintan Sir', role: 'Admin' }];
+  IsResources: boolean = false;
+  IsApproval: boolean = false;
+  IsShowApproveTeam: boolean = false;
+  IsClientfeedback: boolean = false;
+  IsViewProjectUpdate: boolean = false;
 
-  onProjectClick() {
-    this.IsProjectList = true;
-    this.IsNewProject = false;
-    this.IsProjectUpdate = false;
-  }
+  users: any = [{ name: 'Supreme Ranjan', role: 'Auditor' }];
+
   onNewProject() {
-    this.IsProjectList = false;
-    this.IsProjectUpdate = false;
+    this.IsResources = false;
+    this.IsApproval = false;
+    this.IsShowApproveTeam = false;
+    this.ViewResources = false;
+    this.IsClientfeedback = false;
+    this.IsViewProjectUpdate = false;
     this.IsNewProject = true;
   }
 
-  onProjectUpdate() {
-    this.IsProjectList = false;
+  OnResources() {
     this.IsNewProject = false;
-    this.IsProjectUpdate = true;
+    this.IsApproval = false;
+    this.IsShowApproveTeam = false;
+    this.ViewResources = false;
+    this.IsClientfeedback = false;
+    this.IsViewProjectUpdate = false;
+    this.IsResources = true;
+  }
+
+  onApproval() {
+    this.IsNewProject = false;
+    this.IsResources = false;
+    this.IsShowApproveTeam = false;
+    this.ViewResources = false;
+    this.IsClientfeedback = false;
+    this.IsViewProjectUpdate = false;
+    this.IsApproval = true;
+  }
+
+  onShowApproveTeam() {
+    this.IsNewProject = false;
+    this.IsResources = false;
+    this.IsApproval = false;
+    this.ViewResources = false;
+    this.IsClientfeedback = false;
+    this.IsViewProjectUpdate = false;
+    this.IsShowApproveTeam = true;
+  }
+
+  onShowResources() {
+    this.IsNewProject = false;
+    this.IsResources = false;
+    this.IsApproval = false;
+    this.IsShowApproveTeam = false;
+    this.IsClientfeedback = false;
+    this.IsViewProjectUpdate = false;
+    this.ViewResources = true;
+  }
+
+  onShowClientFeedback() {
+    this.IsNewProject = false;
+    this.IsResources = false;
+    this.IsApproval = false;
+    this.IsShowApproveTeam = false;
+    this.ViewResources = false;
+    this.IsViewProjectUpdate = false;
+    this.IsClientfeedback = true;
+  }
+
+  onShowProjectUpdate() {
+    this.IsNewProject = false;
+    this.IsResources = false;
+    this.IsApproval = false;
+    this.IsShowApproveTeam = false;
+    this.ViewResources = false;
+    this.IsClientfeedback = false;
+    this.IsViewProjectUpdate = true;
   }
 
   logout() {

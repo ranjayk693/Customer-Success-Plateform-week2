@@ -21,11 +21,12 @@ import { ShowOneClientFeedbackComponent } from './Compuents/show-one-client-feed
 import { ProjectUpdatesComponent } from './Compuents/project-updates/project-updates.component';
 import { ApprovalTeamComponent } from './Compuents/approval-team/approval-team.component';
 import { ResourcesDataComponent } from './Compuents/resources-data/resources-data.component';
+import { ViewResourcesComponent } from './Compuents/view-resources/view-resources.component';
+import { ViewApproveTeamComponent } from './Compuents/view-approve-team/view-approve-team.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     ClientMeetingComponent,
     MeetingProjectManagerComponent,
     ClientFeedbackComponent,
@@ -43,6 +44,8 @@ import { ResourcesDataComponent } from './Compuents/resources-data/resources-dat
 
     ApprovalTeamComponent,
      ResourcesDataComponent,
+     ViewResourcesComponent,
+     ViewApproveTeamComponent,
   ],
   imports: [
     BrowserModule,

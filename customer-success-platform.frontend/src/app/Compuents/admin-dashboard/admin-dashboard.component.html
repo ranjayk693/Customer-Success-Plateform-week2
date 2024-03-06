@@ -13,23 +13,35 @@
   </section>
   <section class="content">
     <section class="side-nav">
-      <button (click)="onNewProject()">Add Projects</button>
+      <button (click)="onNewProject()">New Project</button>
+      <h2>Projects</h2>
       <ul>
-        <li><a (click)="onProjectClick()">All Projects</a></li>
+        <li (click)="onShowResources()">Show Resources</li>
+        <li (click)="OnResources()">Add Resources</li>
+        <li (click)="onShowApproveTeam()">Show Approve Team</li>
+        <li (click)="onApproval()">Add Approve Team</li>
+        <li (click)="onShowClientFeedback()">Show Client Feedback</li>
+        <li (click)="onShowProjectUpdate()">Show project update</li>
       </ul>
+      <h2>Add Employee</h2>
       <ul>
-        <li (click)="onProjectUpdate()">Project Update</li>
+        <li><button>+</button>Hire Auditor</li>
+        <li><button>+</button> Hire Project Manager</li>
+        <li><button>+</button> Hire Employee</li>
+        <li><button>+</button> Post Job</li>
       </ul>
-      <ul>
-        <li>Add Auditor</li>
-        <li>Add Client</li>
-        <li><h2>Setting</h2></li>
-      </ul>
+      <h2>Setting</h2>
     </section>
     <section class="main-content">
-      <app-project-list *ngIf="IsProjectList"></app-project-list>
       <app-create-project *ngIf="IsNewProject"></app-create-project>
-      <app-show-update *ngIf="IsProjectUpdate"></app-show-update>
+      <app-resources-data *ngIf="IsResources"></app-resources-data>
+      <app-approval-team *ngIf="IsApproval"></app-approval-team>
+      <app-view-approve-team *ngIf="IsShowApproveTeam"></app-view-approve-team>
+      <app-view-resources *ngIf="ViewResources"></app-view-resources>
+      <app-show-client-feedback
+        *ngIf="IsClientfeedback"
+      ></app-show-client-feedback>
+      <app-show-update *ngIf="IsViewProjectUpdate"></app-show-update>
     </section>
   </section>
 </section>

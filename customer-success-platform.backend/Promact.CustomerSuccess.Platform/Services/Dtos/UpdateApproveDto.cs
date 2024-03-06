@@ -2,6 +2,7 @@
 {
     public class UpdateApproveDto
     {
+        public Guid ProjectId { get; set; }
         public int NoOfResources { set; get; }
         public string Role { set; get; }
         public string Availability { set; get; }

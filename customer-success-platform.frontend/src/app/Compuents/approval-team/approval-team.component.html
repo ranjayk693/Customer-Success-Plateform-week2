@@ -1,1 +1,57 @@
-<p>approval-team works!</p>
+<form [formGroup]="resourceForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="projectId">Project ID:</label>
+    <input
+      type="text"
+      id="projectId"
+      formControlName="projectId"
+      placeholder="Name of the resource"
+    />
+  </div>
+  <div>
+    <label for="noOfResources">Number of Resources:</label>
+    <input
+      type="number"
+      id="noOfResources"
+      formControlName="noOfResources"
+      placeholder="Enter the no of resource"
+    />
+  </div>
+  <div>
+    <label for="role">Role:</label>
+    <input
+      type="text"
+      id="role"
+      formControlName="role"
+      placeholder="Enter the role"
+    />
+  </div>
+  <div>
+    <label for="availability">Availability:</label>
+    <input
+      type="text"
+      id="availability"
+      formControlName="availability"
+      placeholder="Availability"
+    />
+  </div>
+  <div>
+    <label for="duration">Duration:</label>
+    <input
+      type="number"
+      id="duration"
+      formControlName="duration"
+      placeholder="Duration in Days"
+    />
+  </div>
+  <div>
+    <label for="phase">Phase:</label>
+    <input
+      type="number"
+      id="phase"
+      formControlName="phase"
+      placeholder="Enter the phase"
+    />
+  </div>
+  <button type="submit" [disabled]="resourceForm.invalid">Submit</button>
+</form>

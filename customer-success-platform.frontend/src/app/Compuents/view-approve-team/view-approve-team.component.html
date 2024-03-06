@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project ID</th>
+      <th>No. of Resources</th>
+      <th>Role</th>
+      <th>Availability</th>
+      <th>Duration</th>
+      <th>Phase</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projectData">
+      <td>{{ project.id }}</td>
+      <td>{{ project.projectId }}</td>
+      <td>{{ project.noOfResources }}</td>
+      <td>{{ project.role }}</td>
+      <td>{{ project.availability }}</td>
+      <td>{{ project.duration }}</td>
+      <td>{{ project.phase }}</td>
+      <td>
+        <button (click)="onDeleteProject(project.id)">Detete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

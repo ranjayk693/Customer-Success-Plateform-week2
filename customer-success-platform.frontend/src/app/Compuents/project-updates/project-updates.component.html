@@ -1,7 +1,13 @@
 <form [formGroup]="projectUpdatesForm" (ngSubmit)="onSubmit()">
   <div>
+    <!-- Valid project ID requier to perform this operation-->
     <label for="projectId">Project ID:</label>
-    <input type="text" id="projectId" formControlName="projectId" />
+    <input
+      type="text"
+      id="projectId"
+      formControlName="projectId"
+      placeholder="Enter the project ID"
+    />
   </div>
   <div>
     <label for="date">Date:</label>
@@ -9,7 +15,11 @@
   </div>
   <div>
     <label for="generalUpdates">General Updates:</label>
-    <textarea id="generalUpdates" formControlName="generalUpdates"></textarea>
+    <textarea
+      id="generalUpdates"
+      formControlName="generalUpdates"
+      placeholder="General update"
+    ></textarea>
   </div>
   <button type="submit">Submit</button>
 </form>

@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project ID</th>
+      <th>Resource Name</th>
+      <th>Role</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Comment</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let resource of projectData; let i = index">
+      <td>{{ resource.id }}</td>
+      <td>{{ resource.projectId }}</td>
+      <td>{{ resource.resourceName }}</td>
+      <td>{{ resource.role }}</td>
+      <td>{{ resource.startDate }}</td>
+      <td>{{ resource.endDate }}</td>
+      <td>{{ resource.comment }}</td>
+      <td><button (click)="deleteResource(resource.id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
