@@ -9,6 +9,7 @@
 
     <label for="type">Type</label>
     <select id="type" formControlName="type" required>
+      <option value="" hidden default>Type</option>
       <option value="0">FixedBudget</option>
       <option value="1">Monthly</option>
     </select>
@@ -19,6 +20,7 @@
       formControlName="durationInMonths"
       id="durationInMonths"
       required
+      placeholder="Enter the Duration in month"
     />
     <label for="budgetedHours">Budgeted Hours</label>
     <input
@@ -26,6 +28,7 @@
       formControlName="budgetedHours"
       id="budgetedHours"
       required
+      placeholder="Enter the Budget hour"
     />
     <button type="submit" [disabled]="!projectBudgetForm.valid">Submit</button>
   </form>

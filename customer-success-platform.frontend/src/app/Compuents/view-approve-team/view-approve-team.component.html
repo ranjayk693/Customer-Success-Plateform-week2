@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>ID</th>
@@ -24,5 +24,86 @@
         <button (click)="onDeleteProject(project.id)">Detete</button>
       </td>
     </tr>
+  </tbody>
+</table> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project ID</th>
+      <th>No of Resources</th>
+      <th>Role</th>
+      <th>Availability</th>
+      <th>Duration</th>
+      <th>Phase</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projectApprove.length){ @for(user of projectApprove ;track $index){
+    <tr>
+      <td>
+        {{ user.id }}
+      </td>
+
+      <td>{{ user.projectId }}</td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="number" [(ngModel)]="user.noOfResources" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.noOfResources }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.role" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.role }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.availability" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.availability }}
+        </div>
+      </td>
+      
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="number" [(ngModel)]="user.duration" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.duration }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="number" [(ngModel)]="user.phase" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.phase }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="deleteApproveTeam(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="8">No Data found</td>
+    }
   </tbody>
 </table>

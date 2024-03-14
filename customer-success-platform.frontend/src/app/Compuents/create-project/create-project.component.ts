@@ -12,7 +12,6 @@ export class CreateProjectComponent {
 
   constructor(private fb: FormBuilder, private service: ServiceService) {
     this.projectForm = this.fb.group({
-      // id: ['', Validators.required],
       Name: ['', Validators.required],
       description: ['', Validators.required],
     });
@@ -24,7 +23,9 @@ export class CreateProjectComponent {
     if (this.projectForm.valid) {
       const data = this.projectForm.value;
       this.service.postProjectData(data).subscribe(
-        (res) => {},
+        (res) => {
+          alert("Project is created sucessfully")
+        },
         (error) => {
           console.error('Error occur while posting data');
         }

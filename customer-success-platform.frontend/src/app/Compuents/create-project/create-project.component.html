@@ -1,13 +1,5 @@
-<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
-  <div>
-    <!-- <label for="ProjectID">Project ID:</label>
-    <input
-      type="text"
-      id="ProjectID"
-      formControlName="id"
-      placeholder="enter the project ID"
-    /> -->
-  </div>
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="form-container">
+ 
   <div>
     <label for="project-name">Project Name:</label>
     <input
@@ -27,5 +19,5 @@
     />
   </div>
 
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="!projectForm.valid">Submit</button>
 </form>

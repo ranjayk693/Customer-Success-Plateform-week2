@@ -3,18 +3,15 @@ import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.css',
+  selector: 'app-role-based-control',
+  templateUrl: './role-based-control.component.html',
+  styleUrl: './role-based-control.component.css'
 })
-export class LoginPageComponent {
-  // constructor(public auth: AuthService) {}
-  constructor(
-    @Inject(DOCUMENT) public document: Document,
-    public auth: AuthService
-  ) {
-    auth.loginWithRedirect();
-  }
+export class RoleBasedControlComponent {
+  //   constructor(
+  //     @Inject(DOCUMENT) public document: Document,
+  //   public auth: AuthService
+  // ) {}
 
   // ngOnInit() {
   //   this.auth.user$.subscribe(

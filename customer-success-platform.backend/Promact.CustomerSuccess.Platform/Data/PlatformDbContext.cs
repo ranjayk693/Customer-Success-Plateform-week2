@@ -20,6 +20,7 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
     }
 
     public DbSet<ApprovedTeam> approvedTeams { get; set; }
+    public DbSet<RoleBased>roleBased { get; set; }
     public DbSet<VersionHistory> versionHistory { get; set; }
     public DbSet<StakeHolder> stakeHolder { get; set; }
     public DbSet<AuditHistory> auditHistory { get; set; }
@@ -58,6 +59,11 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
         builder.Entity<DocumentVersion>(entity =>
         {                        
             entity.ConfigureByConvention();
+        });
+
+        builder.Entity<RoleBased>(RoleBased =>
+        {
+            RoleBased.ConfigureByConvention();
         });
 
         builder.Entity<StakeHolder>(StakeHolder =>

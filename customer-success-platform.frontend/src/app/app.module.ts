@@ -40,6 +40,8 @@ import { EditDeteteSprintComponent } from './Compuents/edit-detete-sprint/edit-d
 import { AddAuditHistoryComponent } from './Compuents/add-audit-history/add-audit-history.component';
 import { EditDeleteAuditHistoryComponent } from './Compuents/edit-delete-audit-history/edit-delete-audit-history.component';
 import { AddVerionHistoryComponent } from './Compuents/add-verion-history/add-verion-history.component';
+import { RoleBasedControlComponent } from './Compuents/role-based-control/role-based-control.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,7 @@ import { AddVerionHistoryComponent } from './Compuents/add-verion-history/add-ve
     AddAuditHistoryComponent,
     EditDeleteAuditHistoryComponent,
     AddVerionHistoryComponent,
+    RoleBasedControlComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,11 +95,13 @@ import { AddVerionHistoryComponent } from './Compuents/add-verion-history/add-ve
       domain: 'dev-ayjglpjmsuf7x6yw.us.auth0.com',
       clientId: 'prcYplvZrtAYVUqpr9xHRyR6C7zLt1AU',
       authorizationParams: {
-        redirect_uri: 'http://localhost:4200/auditor',
+        redirect_uri: 'http://localhost:4200/rediretinglogin',
       },
     }),
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

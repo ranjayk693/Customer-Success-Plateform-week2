@@ -6,6 +6,7 @@ import { AuditorDashboardComponent } from './Compuents/auditor-dashboard/auditor
 import { ProjectManagerDashboardComponent } from './Compuents/project-manager-dashboard/project-manager-dashboard.component';
 import { ClientDashboardComponent } from './Compuents/client-dashboard/client-dashboard.component';
 import { AuthModule } from '@auth0/auth0-angular';
+import { RoleBasedControlComponent } from './Compuents/role-based-control/role-based-control.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'auditor', component: AuditorDashboardComponent },
   { path: 'manager', component: ProjectManagerDashboardComponent },
   { path: 'client', component: ClientDashboardComponent },
+  {path:'rediretinglogin',component:RoleBasedControlComponent}
 ];
 
 @NgModule({

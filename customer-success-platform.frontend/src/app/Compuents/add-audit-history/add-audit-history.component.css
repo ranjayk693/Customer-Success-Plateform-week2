@@ -51,3 +51,8 @@ button[type="submit"]:hover {
   font-size: 14px;
   margin-top: 5px;
 }
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

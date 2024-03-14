@@ -13,35 +13,66 @@
   </section>
   <section class="content">
     <section class="side-nav">
-      <button (click)="onNewProject()">New Project</button>
-      <h2>Projects</h2>
+      <button (click)="createProject()">New Project</button>
+      <h2>Add Projects</h2>
       <ul>
-        <li (click)="onShowResources()">Show Resources</li>
-        <li (click)="OnResources()">Add Resources</li>
-        <li (click)="onShowApproveTeam()">Show Approve Team</li>
-        <li (click)="onApproval()">Add Approve Team</li>
-        <li (click)="onShowClientFeedback()">Show Client Feedback</li>
-        <li (click)="onShowProjectUpdate()">Show project update</li>
+        <li (click)="AddApproval()"><button>+</button>Add Approve Team</li>
+        <li (click)="AddResources()"><button>+</button>Add Resources</li>
+        <li (click)="AddBudget()"><button>+</button>Project Budget</li>
+        <li (click)="AddStakeHolder()"><button>+</button>Add stake holder</li>
+        <li (click)="AddPhases()"><button>+</button>Add Phases Milestone</li>
+        <li (click)="AddRisk()"><button>+</button>Add Risk Profile</li>
+        <li (click)="AddSprint()"><button>+</button>Add Sprint</li>
+        <li (click)="AddVerion()"><button>+</button>Add Version History</li>
+        <li (click)="AddAudit()"><button>+</button>Add AuditHistory</li>
       </ul>
-      <h2>Add Employee</h2>
-      <ul>
-        <li><button>+</button>Hire Auditor</li>
-        <li><button>+</button> Hire Project Manager</li>
-        <li><button>+</button> Hire Employee</li>
-        <li><button>+</button> Post Job</li>
-      </ul>
-      <h2>Setting</h2>
+        
+    
+     
     </section>
+ 
     <section class="main-content">
-      <app-create-project *ngIf="IsNewProject"></app-create-project>
-      <app-resources-data *ngIf="IsResources"></app-resources-data>
-      <app-approval-team *ngIf="IsApproval"></app-approval-team>
-      <app-view-approve-team *ngIf="IsShowApproveTeam"></app-view-approve-team>
-      <app-view-resources *ngIf="ViewResources"></app-view-resources>
-      <app-show-client-feedback
-        *ngIf="IsClientfeedback"
-      ></app-show-client-feedback>
-      <app-show-update *ngIf="IsViewProjectUpdate"></app-show-update>
+
+      <section class="horizontal-nav">
+        <!-- <button class="slider-button" >◀️</button> -->
+        <ul>
+          <li (click)="ShowApproveTeam()">Show Approve Team</li>
+          <li (click)="ShowResources()">Show Resources</li>
+          <li (click)="ShowRisk()">Show Risk Profie</li>
+          <li (click)="ShowStakeHolder()">Show Stakeholders</li>
+          <li (click)="ShowPhases()">Show Phases</li>
+          <li (click)="ShowSprint()">Show Sprint</li>
+          <li (click)="ShowVersion()">Show Version History</li>
+          <li (click)="ShowAudit()">Show Audit History</li>
+          <li (click)="ShowProjectUpdate()">Show project update</li>
+          <li (click)="ShowClientFeedback()">Show Client Feedback</li>
+        </ul>
+        <!-- <button class="slider-button" >▶️</button> -->
+      </section>
+      <section class="item">
+        <ng-container [ngSwitch]="activeSection">
+          <app-create-project *ngSwitchCase="'NewProject'"></app-create-project>
+          <app-resources-data *ngSwitchCase="'AddResources'"></app-resources-data>
+          <app-approval-team *ngSwitchCase="'AddApproval'"></app-approval-team>
+          <app-add-stakeholder *ngSwitchCase="'AddStakeHolder'"></app-add-stakeholder>
+          <app-add-phases-milestone  *ngSwitchCase="'AddPhaseMileStone'"></app-add-phases-milestone>
+          <app-add-risk-profling  *ngSwitchCase="'AddRiskProfle'"></app-add-risk-profling>
+          <app-add-sprint  *ngSwitchCase="'AddSprint'"></app-add-sprint>
+          <app-add-audit-history  *ngSwitchCase="'AddAudit'"></app-add-audit-history>
+          <app-add-verion-history *ngSwitchCase="'AddVersion'"></app-add-verion-history>
+          <app-project-budget *ngSwitchCase="'AddBudget'"></app-project-budget>
+  
+          <app-view-approve-team *ngSwitchCase="'ShowApproveTeam'"></app-view-approve-team>
+          <app-view-resources *ngSwitchCase="'ShowResources'"></app-view-resources>
+          <app-show-client-feedback *ngSwitchCase="'ShowClientFeedback'"></app-show-client-feedback>
+          <app-show-update *ngSwitchCase="'ShowProjectUpdate'"></app-show-update>
+          <app-edit-delete-risk-profling *ngSwitchCase="'ShowRisk'"></app-edit-delete-risk-profling> 
+          <app-edit-detete-sprint *ngSwitchCase="'ShowSprint'"></app-edit-detete-sprint>
+          <app-edit-delete-audit-history *ngSwitchCase="'showAudit'"></app-edit-delete-audit-history>
+          <app-edit-delete-phases-milestone *ngSwitchCase="'showPhases'"></app-edit-delete-phases-milestone>
+          <app-edit-delete-stakeholder *ngSwitchCase="'ShowStakeHolder'"></app-edit-delete-stakeholder>
+        </ng-container>
+      </section>
     </section>
   </section>
 </section>

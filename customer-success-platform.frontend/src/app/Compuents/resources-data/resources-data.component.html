@@ -44,5 +44,5 @@
     placeholder="Enter the comment"
   ></textarea>
 
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="!resourceForm.valid">Submit</button>
 </form>

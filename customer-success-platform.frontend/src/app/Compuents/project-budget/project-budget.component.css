@@ -39,14 +39,13 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-/* Style for form button on hover */
-button[type="submit"]:hover {
-  background-color: #45a049;
-}
-
-/* Style for error messages */
 .error-message {
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }

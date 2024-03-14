@@ -13,9 +13,9 @@ export class ProjectBudgetComponent {
   constructor(private fb: FormBuilder, private service: ServiceService) {
     this.projectBudgetForm = this.fb.group({
       projectId: ['', Validators.required],
-      type: [0, Validators.required],
-      durationInMonths: [0, Validators.required],
-      budgetedHours: [0, Validators.required],
+      type: ['', Validators.required],
+      durationInMonths: [, Validators.required],
+      budgetedHours: [, Validators.required],
     });
   }
 

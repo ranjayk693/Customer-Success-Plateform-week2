@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServiceService } from '../../Services/service.service';
 
@@ -8,87 +8,85 @@ import { ServiceService } from '../../Services/service.service';
   styleUrl: './admin-dashboard.component.css',
 })
 export class AdminDashboardComponent {
-  ViewResources: boolean = true;
-  IsNewProject: boolean = false;
-  IsResources: boolean = false;
-  IsApproval: boolean = false;
-  IsShowApproveTeam: boolean = false;
-  IsClientfeedback: boolean = false;
-  IsViewProjectUpdate: boolean = false;
 
-  users: any = [{ name: 'Supreme Ranjan', role: 'Auditor' }];
-
-  onNewProject() {
-    this.IsResources = false;
-    this.IsApproval = false;
-    this.IsShowApproveTeam = false;
-    this.ViewResources = false;
-    this.IsClientfeedback = false;
-    this.IsViewProjectUpdate = false;
-    this.IsNewProject = true;
-  }
-
-  OnResources() {
-    this.IsNewProject = false;
-    this.IsApproval = false;
-    this.IsShowApproveTeam = false;
-    this.ViewResources = false;
-    this.IsClientfeedback = false;
-    this.IsViewProjectUpdate = false;
-    this.IsResources = true;
-  }
-
-  onApproval() {
-    this.IsNewProject = false;
-    this.IsResources = false;
-    this.IsShowApproveTeam = false;
-    this.ViewResources = false;
-    this.IsClientfeedback = false;
-    this.IsViewProjectUpdate = false;
-    this.IsApproval = true;
-  }
-
-  onShowApproveTeam() {
-    this.IsNewProject = false;
-    this.IsResources = false;
-    this.IsApproval = false;
-    this.ViewResources = false;
-    this.IsClientfeedback = false;
-    this.IsViewProjectUpdate = false;
-    this.IsShowApproveTeam = true;
-  }
-
-  onShowResources() {
-    this.IsNewProject = false;
-    this.IsResources = false;
-    this.IsApproval = false;
-    this.IsShowApproveTeam = false;
-    this.IsClientfeedback = false;
-    this.IsViewProjectUpdate = false;
-    this.ViewResources = true;
-  }
-
-  onShowClientFeedback() {
-    this.IsNewProject = false;
-    this.IsResources = false;
-    this.IsApproval = false;
-    this.IsShowApproveTeam = false;
-    this.ViewResources = false;
-    this.IsViewProjectUpdate = false;
-    this.IsClientfeedback = true;
-  }
-
-  onShowProjectUpdate() {
-    this.IsNewProject = false;
-    this.IsResources = false;
-    this.IsApproval = false;
-    this.IsShowApproveTeam = false;
-    this.ViewResources = false;
-    this.IsClientfeedback = false;
-    this.IsViewProjectUpdate = true;
-  }
+  users: any = [{ name: 'Chintan sir', role: 'Admin' }];
 
   logout() {
     // logout
   }
+
+  activeSection: string = '';
+
+  createProject() {
+    this.activeSection = 'NewProject';
+  }
+
+  AddResources() {
+    this.activeSection = 'AddResources';
+  }
+
+  AddApproval() {
+    this.activeSection = 'AddApproval';
+  }
+
+  AddStakeHolder(){
+    this.activeSection='AddStakeHolder';
+  }
+
+  AddBudget(){
+    this.activeSection='AddBudget'
+  }
+
+  AddRisk(){
+    this.activeSection='AddRiskProfle'
+  }
+  AddSprint(){
+    this.activeSection='AddSprint'
+  }
+  AddVerion(){
+    this.activeSection='AddVersion'
+  }
+  AddAudit(){
+    this.activeSection="AddAudit"
+  }
+  AddPhases(){
+    this.activeSection='AddPhaseMileStone'
+  }
+  // Define other methods similarly
+  
+  ShowApproveTeam() {
+    this.activeSection = 'ShowApproveTeam';
+  }
+
+  ShowResources() {
+    this.activeSection = 'ShowResources';
+  }
+
+
+
+  ShowRisk(){
+    this.activeSection='ShowRisk'
+  }
+  ShowSprint(){
+    this.activeSection='ShowSprint'
+  }
+  ShowVersion(){}
+  ShowAudit(){
+    this.activeSection='showAudit'
+  }
+  ShowProjectUpdate(){
+    this.activeSection='ShowProjectUpdate'
+  }
+  ShowClientFeedback(){
+    this.activeSection='ShowClientFeedback'
+  }
+  ShowStakeHolder(){
+    this.activeSection='ShowStakeHolder'
+  }
+  ShowPhases(){
+    this.activeSection='showPhases'
+  }
+
+
+
 }

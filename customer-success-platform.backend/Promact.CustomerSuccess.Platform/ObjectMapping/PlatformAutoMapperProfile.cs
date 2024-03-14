@@ -72,5 +72,10 @@ public class PlatformAutoMapperProfile : Profile
         CreateMap<CreateStakeHolderDto, StakeHolder>();
         CreateMap<UpdateStakeHolderDto, StakeHolder>();
         CreateMap<StakeHolder, StakeHolderDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for RoleBased*/
+        CreateMap<CreateRoleBasedDto, RoleBased>();
+        CreateMap<UpdateRoleBasedDto, RoleBased>();
+        CreateMap<RoleBased, RoleBasedDto>().ReverseMap();
     }
 }
