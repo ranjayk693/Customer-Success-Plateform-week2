@@ -1,0 +1,32 @@
+<div class="form-container">
+  <form [formGroup]="projectBudgetForm" (ngSubmit)="onSubmit()">
+    <label for="projectId">Project ID</label>
+    <!-- <input type="text" formControlName="projectId" id="projectId" required /> -->
+    <select name="" id="projectId" formControlName="projectId">
+      <option value="" default hidden>Select the Project IDs</option>
+      <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+    </select>
+
+    <label for="type">Type</label>
+    <select id="type" formControlName="type" required>
+      <option value="0">FixedBudget</option>
+      <option value="1">Monthly</option>
+    </select>
+
+    <label for="durationInMonths">Duration in Months</label>
+    <input
+      type="number"
+      formControlName="durationInMonths"
+      id="durationInMonths"
+      required
+    />
+    <label for="budgetedHours">Budgeted Hours</label>
+    <input
+      type="number"
+      formControlName="budgetedHours"
+      id="budgetedHours"
+      required
+    />
+    <button type="submit" [disabled]="!projectBudgetForm.valid">Submit</button>
+  </form>
+</div>

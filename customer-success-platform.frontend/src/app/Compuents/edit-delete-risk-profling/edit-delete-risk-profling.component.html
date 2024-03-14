@@ -1,0 +1,146 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project ID</th>
+      <th>Risk Type</th>
+      <th>Description</th>
+      <th>Severity</th>
+      <th>Impact</th>
+      <th>RemedialSteps</th>
+      <th>Status</th>
+      <th>ClosureDate</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projectRiskProfiling.length){ @for(user of projectRiskProfiling ;track
+    $index){
+    <tr>
+      <td>
+        {{ user.id }}
+      </td>
+
+      <td>{{ user.projectId }}</td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <select [(ngModel)]="user.riskType">
+            <option value="" hidden default>Risk type</option>
+            <option value="0">Financial</option>
+            <option value="1">Operational</option>
+            <option value="2">Technical</option>
+            <option value="3">HumanResource</option>
+            <option value="4">External</option>
+          </select>
+        </div>
+        <div *ngIf="!user.isEdit">
+          @if(user.riskType=='0'){
+          <p>Financial</p>
+          }@else if(user.riskType=='1'){
+          <p>Operational</p>
+          }@else if (user.riskType=='2') {
+          <p>Technical</p>
+          }@else if (user.riskType=='3') {
+          <p>HumanResource</p>
+          }@else if (user.riskType=='4') {
+          <p>External</p>
+          }@else {
+          <p>No role has been defined</p>
+          }
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.description" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.description }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <select [(ngModel)]="user.severity">
+            <option value="" hidden default>Select the Severity</option>
+            <option value="0">Low</option>
+            <option value="1">Medium</option>
+            <option value="2">High</option>
+          </select>
+        </div>
+        <div *ngIf="!user.isEdit">
+          @if(user.riskType=='0'){
+          <p>Low</p>
+          }@else if(user.riskType=='1'){
+          <p>Medium</p>
+          }@else if (user.riskType=='2') {
+          <p>High</p>
+          }@else {
+          <p>No Risk level has been defined</p>
+          }
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <select [(ngModel)]="user.impact">
+            <option value="" hidden default>Select the Impact Level</option>
+            <option value="0">Low</option>
+            <option value="1">Medium</option>
+            <option value="2">High</option>
+          </select>
+        </div>
+        <div *ngIf="!user.isEdit">
+          @if(user.impact=='0'){
+          <p>Low</p>
+          }@else if(user.impact=='1'){
+          <p>Medium</p>
+          }@else if (user.impact=='2') {
+          <p>High</p>
+          }@else {
+          <p>No Impact level has been defined</p>
+          }
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.remedialSteps" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.remedialSteps }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.status" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.status }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="date" [(ngModel)]="user.closureDate" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.closureDate }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="deleteRisk(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="10">No Data found</td>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,65 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project ID</th>
+      <th>Type</th>
+      <th>Duration In Months</th>
+      <th>Budget In Hours</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projectBudget.length){ @for(user of projectBudget ;track $index){
+    <tr>
+      <td>
+        {{ user.id }}
+      </td>
+
+      <td>{{ user.projectId }}</td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <!-- <input type="text" [(ngModel)]="user.type" /> -->
+          <select [(ngModel)]="user.type">
+            <option value="0">FixedBudget</option>
+            <option value="1">Monthly</option>
+          </select>
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.type == 0 ? "FixedBudget" : "Monthly" }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="number" [(ngModel)]="user.durationInMonths" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.durationInMonths }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="number" [(ngModel)]="user.budgetedHours" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.budgetedHours }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="deleteResource(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="6">No Data found</td>
+    }
+  </tbody>
+</table>

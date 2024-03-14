@@ -1,9 +1,11 @@
 @if(meetingMinutes.length){ @for(item of meetingMinutes ;track $index){
-<p>Project ID: {{ item.projectId }}</p>
-<p>Meeting Date: {{ item.meetingDate }}</p>
-<p>MoM Link: {{ item.duration }} minutes</p>
-<p>Duration: {{ item.moMLink }}</p>
-<p>Comments: {{ item.comments }}</p>
+<section class="Meeting-minute">
+  <p>Project ID: {{ item.projectId }}</p>
+  <p>Meeting Date: {{ item.meetingDate }}</p>
+  <p>MoM Link: {{ item.moMLink }}</p>
+  <p>Duration: {{ item.duration }} minute</p>
+  <p>Comments: {{ item.comments }}</p>
+</section>
 } } @else {
 <h2>No metting schedule</h2>
 }

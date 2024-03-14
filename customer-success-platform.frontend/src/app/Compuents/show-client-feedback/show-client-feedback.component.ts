@@ -21,4 +21,19 @@ export class ShowClientFeedbackComponent {
       }
     );
   }
+
+  onDelete(id: string) {
+    if (confirm('Are you sure?')) {
+      this.service.deleteClientFeedbackData(id).subscribe(
+        (response) => {
+          this.clientfeedback = this.clientfeedback.filter((item) => {
+            item.id !== id;
+          });
+        },
+        (error) => {
+          alert('Something went wrong while deleting the item');
+        }
+      );
+    }
+  }
 }

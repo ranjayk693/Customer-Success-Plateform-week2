@@ -18,17 +18,20 @@
         <li (click)="CheckProjectUpdate()">Check Project Update</li>
         <li (click)="onMeeting()">Check Meeting</li>
         <li (click)="onFeedback()">Give Feedback</li>
+        <li (click)="onShowFeedback()">Show Feedback</li>
         <li><h2>Setting</h2></li>
       </ul>
     </section>
     <section class="main-content">
       @if(IsUpdate){
-      <app-show-update></app-show-update>
+      <app-show-client-general-update></app-show-client-general-update>
       }@else if(IsMeeting){
       <app-client-meeting></app-client-meeting>
       } @else if(IsFeedback){
       <app-client-feedback></app-client-feedback>
-      }@else { }
+      } @else if(IsShowFeedback) {
+      <app-show-feedback></app-show-feedback>
+      }
     </section>
   </section>
 </section>

@@ -1,0 +1,95 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>PhaseMilestone ID</th>
+      <th>sprint Number</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>status</th>
+      <th>comments</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projectSprint.length){ @for(user of projectSprint ;track $index){
+    <tr>
+      <td>
+        {{ user.id }}
+      </td>
+
+      <td>{{ user.phaseMilestoneId }}</td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="number" [(ngModel)]="user.sprintNumber" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.sprintNumber }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="date" [(ngModel)]="user.startDate" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.startDate }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="date" [(ngModel)]="user.endDate" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.endDate }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <select [(ngModel)]="user.status">
+            <option value="" hidden default>Select the Status</option>
+            <option value="0">Delayed</option>
+            <option value="1">OnTime</option>
+            <option value="2">SignOffPending</option>
+            <option value="3">SignedOff</option>
+          </select>
+        </div>
+        <div *ngIf="!user.isEdit">
+          @if(user.status=="0"){
+          <p>Delayed</p>
+          } @else if(user.status=="1"){
+          <p>OnTime</p>
+          } @else if(user.status=="2"){
+          <p>SignOffPending</p>
+          } @else if(user.status=="2"){
+          <p>SignedOff</p>
+          } @else{
+          <p>No data found</p>
+          }
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.comments" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.comments }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="deleteSprint(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="8">No Data found</td>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,81 @@
+<p>add-stakeholder works!</p>
+<div class="form-container">
+  <form [formGroup]="projectVerionHistory" (ngSubmit)="onSubmit()">
+    <label for="projectId">Project ID</label>
+    <select name="" id="projectId" formControlName="projectId">
+      <option value="" default hidden>Select the Project IDs</option>
+      <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+    </select>
+
+    <label for="version">Verion</label>
+    <input
+      type="number"
+      id="version"
+      formControlName="version"
+      required
+      placeholder="Enter the verion"
+    />
+
+    <label for="type">Type</label>
+    <input
+      type="text"
+      formControlName="type"
+      id="type"
+      required
+      placeholder="Types of change"
+    />
+
+    <label for="change">Change</label>
+    <input
+      type="text"
+      formControlName="change"
+      id="change"
+      required
+      placeholder="enter the changes"
+    />
+
+    <label for="changeReason">Change Reason</label>
+    <input
+      type="text"
+      formControlName="changeReason"
+      id="changeReason"
+      required
+      placeholder="Change Reason"
+    />
+
+    <label for="createdBy">Created By</label>
+    <input
+      type="text"
+      formControlName="createdBy"
+      id="createdBy"
+      required
+      placeholder="Created By"
+    />
+
+    <label for="revisionDate">Revision Date</label>
+    <input
+      type="datetime-local"
+      formControlName="revisionDate"
+      id="revisionDate"
+      placeholder="Revision Date"
+    />
+    <label for="approvalDate">Approval Date</label>
+    <input
+      type="datetime-local"
+      formControlName="approvalDate"
+      id="approvalDate"
+      placeholder="Approval Date "
+    />
+    <label for="approvedBy">Approved By</label>
+    <input
+      type="text"
+      formControlName="approvedBy"
+      id="approvedBy"
+      placeholder="Approved By "
+    />
+
+    <button type="submit" [disabled]="!projectVerionHistory.valid">
+      Submit
+    </button>
+  </form>
+</div>

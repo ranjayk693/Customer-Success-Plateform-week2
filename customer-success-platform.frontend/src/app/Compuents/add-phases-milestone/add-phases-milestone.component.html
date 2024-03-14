@@ -1,0 +1,64 @@
+<p>add-stakeholder works!</p>
+<div class="form-container">
+  <form [formGroup]="projectPhase" (ngSubmit)="onSubmit()">
+    <label for="projectId">Project ID</label>
+    <select name="" id="projectId" formControlName="projectId">
+      <option value="" default hidden>Select the Project IDs</option>
+      <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+    </select>
+
+    <label for="title">Title</label>
+    <input
+      type="text"
+      id="title"
+      formControlName="title"
+      required
+      placeholder="enter the Phase-number"
+    />
+
+    <label for="startDate">Start Date</label>
+    <input type="date" formControlName="startDate" id="startDate" required />
+
+    <label for="completionDate">Completion Date</label>
+    <input
+      type="date"
+      formControlName="completionDate"
+      id="completionDate"
+      required
+    />
+
+    <label for="approvalDate">Approval Date</label>
+    <input
+      type="date"
+      formControlName="approvalDate"
+      id="approvalDate"
+      required
+    />
+
+    <label for="status">Status </label>
+    <select id="status" formControlName="status">
+      <option value="" hidden default>Select the Severity</option>
+      <option value="0">Delayed</option>
+      <option value="1">OnTime</option>
+      <option value="2">SignedOffPending</option>
+      <option value="3">SignedOff</option>
+    </select>
+
+    <label for="revisedCompletionDate">Revised Completion Date</label>
+    <input
+      type="date"
+      formControlName="revisedCompletionDate"
+      id="revisedCompletionDate"
+      required
+    />
+
+    <label for="comments">Comments</label>
+    <input
+      type="text"
+      formControlName="comments"
+      id="comments"
+      placeholder="Enter the comment"
+    />
+    <button type="submit" [disabled]="!projectPhase.valid">Submit</button>
+  </form>
+</div>

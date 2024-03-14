@@ -9,7 +9,7 @@ import { ServiceService } from '../../Services/service.service';
 })
 export class ApprovalTeamComponent {
   resourceForm: FormGroup;
-
+  projectIds: string[] = [];
   constructor(private fb: FormBuilder, private service: ServiceService) {
     this.resourceForm = this.fb.group({
       projectId: ['', Validators.required],
@@ -21,7 +21,17 @@ export class ApprovalTeamComponent {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.service.getProjectData().subscribe(
+      (response) => {
+        this.projectIds = response.items.map((item: any) => item.id);
+        console.log(this.projectIds);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 
   onSubmit(): void {
     if (this.resourceForm.valid) {

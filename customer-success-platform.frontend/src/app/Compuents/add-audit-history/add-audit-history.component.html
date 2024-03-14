@@ -1,0 +1,65 @@
+<p>add-stakeholder works!</p>
+<div class="form-container">
+  <form [formGroup]="projectAuditHistory" (ngSubmit)="onSubmit()">
+    <label for="projectId">Project ID</label>
+    <select name="" id="projectId" formControlName="projectId">
+      <option value="" default hidden>Select the Project IDs</option>
+      <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+    </select>
+
+    <label for="dateofAudit">Date of Audit</label>
+    <input
+      type="datetime-local"
+      id="dateofAudit"
+      formControlName="dateofAudit"
+      required
+    />
+
+    <label for="reviewedBy">Reviewed By</label>
+    <input
+      type="text"
+      formControlName="reviewedBy"
+      id="reviewedBy"
+      required
+      placeholder="Reviewed By "
+    />
+
+    <label for="status">Status</label>
+    <input
+      type="text"
+      formControlName="status"
+      id="status"
+      required
+      placeholder="enter the status"
+    />
+
+    <label for="reviewedSection">Reviewed Section</label>
+    <input
+      type="text"
+      formControlName="reviewedSection"
+      id="reviewedSection"
+      required
+      placeholder="Reviewed section"
+    />
+
+    <label for="commentQueries">Comment Queries</label>
+    <input
+      type="text"
+      formControlName="commentQueries"
+      id="commentQueries"
+      required
+      placeholder="Enter the comment"
+    />
+
+    <label for="actionItem">Action Item</label>
+    <input
+      type="text"
+      formControlName="actionItem"
+      id="actionItem"
+      placeholder="Enter the Action Item"
+    />
+    <button type="submit" [disabled]="!projectAuditHistory.valid">
+      Submit
+    </button>
+  </form>
+</div>

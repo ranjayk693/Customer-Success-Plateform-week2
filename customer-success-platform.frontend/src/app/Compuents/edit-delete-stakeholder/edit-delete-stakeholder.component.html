@@ -1,0 +1,85 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project ID</th>
+      <th>Title</th>
+      <th>Name</th>
+      <th>Contact</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projectStakeholder.length){ @for(user of projectStakeholder ;track
+    $index){
+    <tr>
+      <td>
+        {{ user.id }}
+      </td>
+
+      <td>{{ user.projectId }}</td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <!-- <input type="text" [(ngModel)]="user.type" /> -->
+          <select [(ngModel)]="user.title">
+            <option value="" hidden default>Select the stakeholder</option>
+            <option value="0">Project Manger</option>
+            <option value="1">Client</option>
+            <option value="2">Account Manager</option>
+          </select>
+        </div>
+        <div *ngIf="!user.isEdit">
+          @if(user.title=='0'){
+          <p>Project Manager</p>
+          }@else if(user.title=='1'){
+          <p>Client</p>
+          }@else if (user.title=='2') {
+          <p>Account Manager</p>
+          }@else {
+          <p>No role has been defined</p>
+          }
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.name" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.name }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.contact" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.contact }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.email" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.email }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="deleteResource(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="6">No Data found</td>
+    }
+  </tbody>
+</table>

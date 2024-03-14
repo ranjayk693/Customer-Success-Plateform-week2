@@ -1,0 +1,44 @@
+<p>add-stakeholder works!</p>
+<div class="form-container">
+  <form [formGroup]="projectStakeHolder" (ngSubmit)="onSubmit()">
+    <label for="projectId">Project ID</label>
+    <select name="" id="projectId" formControlName="projectId">
+      <option value="" default hidden>Select the Project IDs</option>
+      <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+    </select>
+
+    <label for="stakeholder">Title</label>
+    <select id="stakeholder" formControlName="title" required>
+      <option value="" hidden default>Select the stakeholder</option>
+      <option value="0">Project Manger</option>
+      <option value="1">Client</option>
+      <option value="2">Account Manager</option>
+    </select>
+
+    <label for="name">Name</label>
+    <input
+      type="text"
+      formControlName="name"
+      id="name"
+      required
+      placeholder="enter your name"
+    />
+    <label for="contact">contact number </label>
+    <input
+      type="text"
+      formControlName="contact"
+      id="contact"
+      required
+      placeholder="enter the contact number"
+    />
+
+    <label for="email">email</label>
+    <input
+      type="text"
+      formControlName="email"
+      id="email"
+      placeholder="enter the email"
+    />
+    <button type="submit" [disabled]="!projectStakeHolder.valid">Submit</button>
+  </form>
+</div>

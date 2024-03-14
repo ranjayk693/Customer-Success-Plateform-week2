@@ -5,8 +5,12 @@
     formControlName="projectId"
     placeholder="Project the Valid Project ID"
   />
-  <input type="date" formControlName="meetingDate" placeholder="Meeting Date" />
-  <input type="text" formControlName="momLink" placeholder="MoM Link" />
+  <input
+    type="datetime-local"
+    formControlName="meetingDate"
+    placeholder="Meeting Date"
+  />
+  <input type="text" formControlName="moMLink" placeholder="MoM Link" />
   <input
     type="text"
     formControlName="duration"
@@ -20,7 +24,7 @@
 @if(meetingMinutes.length){ @for(meetingMinute of meetingMinutes; track $index){
 <p>Project ID: {{ meetingMinute.projectId }}</p>
 <p>Meeting Date: {{ meetingMinute.meetingDate }}</p>
-<p>MoM Link: {{ meetingMinute.momLink }}</p>
+<p>MoM Link: {{ meetingMinute.moMLink }}</p>
 <p>Duration: {{ meetingMinute.duration }}</p>
 <p>Comments: {{ meetingMinute.comments }}</p>
 <button (click)="deleteMeetingMinute(meetingMinute.id)">Delete</button>

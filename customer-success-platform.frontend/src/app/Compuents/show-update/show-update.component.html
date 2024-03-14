@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Project ID</th>
@@ -17,6 +17,56 @@
     </tr>
     } }@else {
     <td colspan="4">No data Found</td>
+    }
+  </tbody>
+</table> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>Project ID</th>
+      <th>Project Date</th>
+      <th>General Update</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projects.length){ @for(user of projects ;track $index){
+    <tr>
+      <td>
+        {{ user.projectId }}
+      </td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="date" [(ngModel)]="user.date" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.date }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.generalUpdate" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.generalUpdate }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="onDeleteItem(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="4">No Data found</td>
     }
   </tbody>
 </table>

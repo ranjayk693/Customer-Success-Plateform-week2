@@ -9,6 +9,7 @@
         <th>Details</th>
         <th>Action Taken</th>
         <th>Closure Date</th>
+        <th>Action Item</th>
       </tr>
     </thead>
     <tbody>
@@ -22,10 +23,11 @@
         <td>{{ feedback.details }}</td>
         <td>{{ feedback.actionTaken }}</td>
         <td>{{ feedback.closureDate }}</td>
+        <td><button (click)="onDelete(feedback.id)">Delete</button></td>
       </tr>
       } } @else {
       <tr>
-        <td colspan="7">No Data Found In Database</td>
+        <td colspan="8">No Data Found In Database</td>
       </tr>
       }
     </tbody>

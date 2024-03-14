@@ -1,12 +1,17 @@
 <form [formGroup]="resourceForm" (submit)="onSubmit()">
-  <label for="ProjectId">ProjectId</label>
+  <!-- <label for="ProjectId">ProjectId</label>
   <input
     type="text"
     formControlName="projectId"
     id="ProjectId"
     required
     placeholder="Enter the Project ID"
-  />
+  /> -->
+  <label for="projectId">Project ID</label>
+  <select formControlName="projectId" id="projectId" required>
+    <option value="" default hidden>Select the Project IDs</option>
+    <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+  </select>
 
   <label for="resourceName">Resource Name</label>
   <input

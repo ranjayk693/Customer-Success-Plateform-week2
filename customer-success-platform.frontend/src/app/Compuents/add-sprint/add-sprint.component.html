@@ -1,0 +1,43 @@
+<div class="form-container">
+  <form [formGroup]="projectSprint" (ngSubmit)="onSubmit()">
+    <label for="phaseMilestoneId">phaseMilestone Id</label>
+    <select name="" id="phaseMilestoneId" formControlName="phaseMilestoneId">
+      <option value="" default hidden>Select the Project IDs</option>
+      <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+    </select>
+
+    <label for="sprintNumber">Sprint Number</label>
+    <input
+      type="number"
+      formControlName="sprintNumber"
+      id="sprintNumber"
+      required
+      placeholder="enter the sprintNumber"
+    />
+
+    <label for="startDate">Start Date</label>
+    <input type="date" formControlName="startDate" id="startDate" />
+
+    <label for="endDate">End Date</label>
+    <input type="date" formControlName="endDate" id="endDate" />
+
+    <label for="status">Status </label>
+    <select id="status" formControlName="status">
+      <option value="" hidden default>Select the Status</option>
+      <option value="0">Delayed</option>
+      <option value="1">OnTime</option>
+      <option value="2">SignOffPending</option>
+      <option value="3">SignedOff</option>
+    </select>
+
+    <label for="comments">comments</label>
+    <input
+      type="text"
+      formControlName="comments"
+      id="comments"
+      placeholder="enter the comments"
+    />
+
+    <button type="submit" [disabled]="!projectSprint.valid">Submit</button>
+  </form>
+</div>

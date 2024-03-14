@@ -6,9 +6,6 @@
         Operational,
         Technical,
         HumanResource,
-        External,
-        Legal,
-        Reputational,
-        Strategic
+        External
     }
 }

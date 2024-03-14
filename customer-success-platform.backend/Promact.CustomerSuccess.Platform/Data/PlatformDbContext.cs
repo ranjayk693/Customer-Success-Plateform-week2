@@ -20,6 +20,9 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
     }
 
     public DbSet<ApprovedTeam> approvedTeams { get; set; }
+    public DbSet<VersionHistory> versionHistory { get; set; }
+    public DbSet<StakeHolder> stakeHolder { get; set; }
+    public DbSet<AuditHistory> auditHistory { get; set; }
     public DbSet<Resources> Resources { get; set; }
     public DbSet<ProjectUpdate> ProjectUpdates { get; set; }
     public DbSet<Document> Documents { get; set; }
@@ -56,6 +59,22 @@ public class PlatformDbContext : AbpDbContext<PlatformDbContext>
         {                        
             entity.ConfigureByConvention();
         });
+
+        builder.Entity<StakeHolder>(StakeHolder =>
+        {
+            StakeHolder.ConfigureByConvention();
+        });
+
+        builder.Entity<VersionHistory>(VersionHistory =>
+        {
+            VersionHistory.ConfigureByConvention();            
+        });
+
+        builder.Entity<AuditHistory>(AuditHistory =>
+        {
+            AuditHistory.ConfigureByConvention();           
+        });
+
         builder.Entity<EscalationMatrix>(EscalationMatrix =>
         {            
             EscalationMatrix.ConfigureByConvention();

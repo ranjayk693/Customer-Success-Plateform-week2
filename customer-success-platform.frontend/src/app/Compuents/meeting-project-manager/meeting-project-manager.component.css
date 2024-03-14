@@ -5,7 +5,7 @@ form {
 
 /* Style for the input fields */
 input[type="text"],
-input[type="date"] {
+input[type="datetime-local"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;

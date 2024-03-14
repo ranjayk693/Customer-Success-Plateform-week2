@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ServiceService } from '../../Services/service.service';
 
 @Component({
   selector: 'app-create-project',
@@ -9,9 +10,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CreateProjectComponent {
   projectForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: ServiceService) {
     this.projectForm = this.fb.group({
-      id: ['', Validators.required],
+      // id: ['', Validators.required],
       Name: ['', Validators.required],
       description: ['', Validators.required],
     });
@@ -21,8 +22,13 @@ export class CreateProjectComponent {
 
   onSubmit(): void {
     if (this.projectForm.valid) {
-      //No requirement rigt now
-      alert('No requirement in project');
+      const data = this.projectForm.value;
+      this.service.postProjectData(data).subscribe(
+        (res) => {},
+        (error) => {
+          console.error('Error occur while posting data');
+        }
+      );
     }
   }
 }

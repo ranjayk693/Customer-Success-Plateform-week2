@@ -37,5 +37,40 @@ public class PlatformAutoMapperProfile : Profile
         CreateMap<CreateApproveTeamDto, ApprovedTeam>();
         CreateMap<UpdateApproveDto, ApprovedTeam>();
         CreateMap<ApprovedTeam, ApproveTeamDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for RiskProfiling*/
+        CreateMap<CreateRiskProfileDto, RiskProfile>();
+        CreateMap<UpdateRiskProfileDto, RiskProfile>();
+        CreateMap<RiskProfile, RiskProfileDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for PhaseMileStone*/
+        CreateMap<CreatePhaseMilestoneDto, PhaseMilestone>();
+        CreateMap<UpdatePhaseMilestoneDto, PhaseMilestone>();
+        CreateMap<PhaseMilestone, PhaseMilestoneDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for Sprint*/
+        CreateMap<CreateSprintDto, Sprint>();
+        CreateMap<UpdateSprintDto, Sprint>();
+        CreateMap<Sprint, SprintDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for ProjectBudget*/
+        CreateMap<CreateProjectBudgetDto, ProjectBudget>();
+        CreateMap<UpdateProjectBudgetDto, ProjectBudget>();
+        CreateMap<ProjectBudget, ProjectBudgetDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for AuditHistory*/
+        CreateMap<CreateAuditHistoryDto, AuditHistory>();
+        CreateMap<UpdateAuditHistoryDto, AuditHistory>();
+        CreateMap<AuditHistory, AuditHistoryDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for VersionHistory*/
+        CreateMap<CreateVersionHistoryDto, VersionHistory>();
+        CreateMap<UpdateVerionHistoryDto, VersionHistory>();
+        CreateMap<VersionHistory, VersionHistoryDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for StakeHolder*/
+        CreateMap<CreateStakeHolderDto, StakeHolder>();
+        CreateMap<UpdateStakeHolderDto, StakeHolder>();
+        CreateMap<StakeHolder, StakeHolderDto>().ReverseMap();
     }
 }

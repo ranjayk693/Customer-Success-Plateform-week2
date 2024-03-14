@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>ID</th>
@@ -22,5 +22,85 @@
       <td>{{ resource.comment }}</td>
       <td><button (click)="deleteResource(resource.id)">Delete</button></td>
     </tr>
+  </tbody>
+</table> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project ID</th>
+      <th>Resource Name</th>
+      <th>Role</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Comment</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projectData.length){ @for(user of projectData ;track $index){
+    <tr>
+      <td>
+        {{ user.id }}
+      </td>
+
+      <td>{{ user.projectId }}</td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.resourceName" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.resourceName }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.role" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.role }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="date" [(ngModel)]="user.startDate" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.startDate }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="date" [(ngModel)]="user.endDate" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.endDate }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.comment" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.comment }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="deleteResource(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="8">No Data found</td>
+    }
   </tbody>
 </table>

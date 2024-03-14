@@ -134,4 +134,144 @@ export class ServiceService {
   deleteProjectData(id: string): Observable<any> {
     return this.http.delete(`https://localhost:44347/api/app/project/${id}`);
   }
+
+  /*CRUD operation for Project Budget */
+  getProjectBudget(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/project-budget');
+  }
+  postProjectBudget(data: any): Observable<any> {
+    return this.http.post(
+      'https://localhost:44347/api/app/project-budget',
+      data
+    );
+  }
+  putProjectBudget(id: string, data: any): Observable<any> {
+    return this.http.put(
+      `https://localhost:44347/api/app/project-budget/${id}`,
+      data
+    );
+  }
+  deleteProjectBudget(id: string): Observable<any> {
+    return this.http.delete(
+      `https://localhost:44347/api/app/project-budget/${id}`
+    );
+  }
+
+  /*CRUD operation for Project AuditHistory */
+  getAuditHistory(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/audit-history');
+  }
+  postAuditHistory(data: any): Observable<any> {
+    return this.http.post(
+      'https://localhost:44347/api/app/audit-history',
+      data
+    );
+  }
+  putAuditHistory(id: string, data: any): Observable<any> {
+    return this.http.put(
+      `https://localhost:44347/api/app/audit-history/${id}`,
+      data
+    );
+  }
+  deleteAuditHistory(id: string): Observable<any> {
+    return this.http.delete(
+      `https://localhost:44347/api/app/audit-history/${id}`
+    );
+  }
+
+  /*CRUD operation for Phase MileStone */
+  getPhaseMileStone(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/phase-milestone');
+  }
+  postPhaseMileStone(data: any): Observable<any> {
+    return this.http.post(
+      'https://localhost:44347/api/app/phase-milestone',
+      data
+    );
+  }
+  putPhaseMileStone(id: string, data: any): Observable<any> {
+    return this.http.put(
+      `https://localhost:44347/api/app/phase-milestone/${id}`,
+      data
+    );
+  }
+  deletePhaseMileStone(id: string): Observable<any> {
+    return this.http.delete(
+      `https://localhost:44347/api/app/phase-milestone/${id}`
+    );
+  }
+
+  /*CRUD operation for Risk Profile */
+  getRiskProfile(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/risk-profile');
+  }
+  postRiskProfile(data: any): Observable<any> {
+    return this.http.post('https://localhost:44347/api/app/risk-profile', data);
+  }
+  putRiskProfile(id: string, data: any): Observable<any> {
+    return this.http.put(
+      `https://localhost:44347/api/app/risk-profile/${id}`,
+      data
+    );
+  }
+  deleteRiskProfile(id: string): Observable<any> {
+    return this.http.delete(
+      `https://localhost:44347/api/app/risk-profile/${id}`
+    );
+  }
+
+  /*CRUD operation for Sprint */
+  getSprint(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/sprint');
+  }
+  postSprint(data: any): Observable<any> {
+    return this.http.post('https://localhost:44347/api/app/sprint', data);
+  }
+  putSprint(id: string, data: any): Observable<any> {
+    return this.http.put(`https://localhost:44347/api/app/sprint/${id}`, data);
+  }
+  deleteSprint(id: string): Observable<any> {
+    return this.http.delete(`https://localhost:44347/api/app/sprint/${id}`);
+  }
+
+  /*CRUD operation for StakeHolder */
+  getStakeHolder(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/stake-holder');
+  }
+  postStakeHolder(data: any): Observable<any> {
+    return this.http.post('https://localhost:44347/api/app/stake-holder', data);
+  }
+  putStakeHolder(id: string, data: any): Observable<any> {
+    return this.http.put(
+      `https://localhost:44347/api/app/stake-holder/${id}`,
+      data
+    );
+  }
+  deleteStakeHolder(id: string): Observable<any> {
+    return this.http.delete(
+      `https://localhost:44347/api/app/stake-holder/${id}`
+    );
+  }
+
+  /*CRUD operation for VerionHistory */
+  getVersionHistory(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/version-history');
+  }
+  postVersionHistory(data: any): Observable<any> {
+    return this.http.post(
+      'https://localhost:44347/api/app/version-history',
+      data
+    );
+  }
+  putVersionHistory(id: string, data: any): Observable<any> {
+    return this.http.put(
+      `https://localhost:44347/api/app/version-history/${id}`,
+      data
+    );
+  }
+  deleteVersionHistory(id: string): Observable<any> {
+    return this.http.delete(
+      `https://localhost:44347/api/app/version-history/${id}`
+    );
+  }
 }

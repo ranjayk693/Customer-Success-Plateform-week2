@@ -30,4 +30,33 @@ export class ShowUpdateComponent {
       });
     }
   }
+
+  onEdit(item: any) {
+    item.editCopy = { ...item };
+    item.isEdit = true;
+    console.log(item);
+  }
+
+  onUpdate(item: any) {
+    const data = {
+      projectId: item.projectId,
+      date: item.date,
+      generalUpdate: item.generalUpdate,
+    };
+    this.service.putProjectUpdateData(item.id, data).subscribe(
+      (response) => {
+        alert('Data is updated');
+      },
+      (error) => {
+        Object.assign(item, item.editCopy);
+        alert('Something went wrong while updating the data');
+      }
+    );
+    item.isEdit = false;
+  }
+  onCancel(item: any) {
+    Object.assign(item, item.editCopy);
+    item.isEdit = false;
+    console.log(item);
+  }
 }

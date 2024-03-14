@@ -2,7 +2,7 @@
 {
     public enum ProjectType
     {
-        FixedBudget,
-        ManMonth
+        FixedBudget=0,
+        Monthly=1
     }
 }

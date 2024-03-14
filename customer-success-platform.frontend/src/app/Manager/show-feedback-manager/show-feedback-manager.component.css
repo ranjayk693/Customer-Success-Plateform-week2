@@ -1,0 +1,64 @@
+/* Table container styling */
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Table styling */
+.feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+/* Header row styling */
+.feedback-table thead th {
+  background-color: #f0f0f0; /* Light gray background */
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Table data row styling */
+.feedback-table tbody td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Alternating row background color */
+.feedback-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Lighter gray background */
+}
+
+/* No data row styling */
+.feedback-table tbody .no-data td {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+}
+
+/* Button container styling */
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Button styling */
+.btn-container button {
+  background-color: #4caf50; /* Green background */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-container button:hover {
+  background-color: #45a049; /* Darker green background on hover */
+}

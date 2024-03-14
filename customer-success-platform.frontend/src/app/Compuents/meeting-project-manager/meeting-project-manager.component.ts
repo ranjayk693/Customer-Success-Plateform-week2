@@ -19,7 +19,7 @@ export class MeetingProjectManagerComponent {
     this.meetingMinuteForm = this.fb.group({
       projectId: ['', Validators.required],
       meetingDate: ['', Validators.required],
-      momLink: ['', Validators.required],
+      moMLink: ['', Validators.required],
       duration: ['', Validators.required],
       comments: ['', Validators.required],
     });
@@ -31,9 +31,7 @@ export class MeetingProjectManagerComponent {
       (response) => {
         this.meetingMinutes = response.items;
       },
-      (error) => {
-        alert('There is promlem while fetching data');
-      }
+      (error) => {}
     );
   }
 
@@ -45,15 +43,15 @@ export class MeetingProjectManagerComponent {
         projectId: this.meetingMinuteForm.get('projectId')!.value,
         meetingDate: this.meetingMinuteForm.get('meetingDate')!.value,
         duration: this.meetingMinuteForm.get('duration')!.value,
-        moMLink: this.meetingMinuteForm.get('momLink')!.value,
+        moMLink: this.meetingMinuteForm.get('moMLink')!.value,
         comments: this.meetingMinuteForm.get('comments')!.value,
       };
 
       // Post method to send the data in backend
       this.service.postMeetingMinuteData(data).subscribe(
         (response) => {
-          console.log('Meeting minute added successfully:', response);
           // Optionally reset the form
+          this.meetingMinutes.push(data);
           this.meetingMinuteForm.reset();
         },
         (error) => {
@@ -66,15 +64,15 @@ export class MeetingProjectManagerComponent {
     }
   }
 
-  // Update method implimentation
-  updateMeetingMinute(meetingMinute: any) {
-    const index = this.meetingMinutes.findIndex(
-      (m) => m.id === meetingMinute.id
-    );
-    if (index !== -1) {
-      this.meetingMinutes[index] = meetingMinute;
-    }
-  }
+  // // Update method implimentation
+  // updateMeetingMinute(meetingMinute: any) {
+  //   const index = this.meetingMinutes.findIndex(
+  //     (m) => m.id === meetingMinute.id
+  //   );
+  //   if (index !== -1) {
+  //     this.meetingMinutes[index] = meetingMinute;
+  //   }
+  // }
 
   // Delete method implimentation
   deleteMeetingMinute(id: string) {

@@ -1,0 +1,89 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project ID</th>
+      <th>Date of Audit</th>
+      <th>Reviewed By</th>
+      <th>Status</th>
+      <th>Reviewed Section</th>
+      <th>comment Queries</th>
+      <th>Action Item</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(projectAuditHistory.length){ @for(user of projectAuditHistory ;track
+    $index){
+    <tr>
+      <td>
+        {{ user.id }}
+      </td>
+
+      <td>{{ user.projectId }}</td>
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="datetime-local" [(ngModel)]="user.dateofAudit" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.dateofAudit }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.reviewedBy" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.reviewedBy }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.status" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.status }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.reviewedSection" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.reviewedSection }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.commentQueries" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.commentQueries }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.actionItem" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.actionItem }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="deleteAuditHistory(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="9">No Data found</td>
+    }
+  </tbody>
+</table>

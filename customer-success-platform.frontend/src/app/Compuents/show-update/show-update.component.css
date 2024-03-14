@@ -19,4 +19,14 @@ button {
   border: none;
   color: white;
   padding: 10px;
+  border-radius: 3px;
 }
+
+.btn-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+

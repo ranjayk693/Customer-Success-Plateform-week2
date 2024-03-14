@@ -1,4 +1,4 @@
-/* CSS for the meeting details */
+/* CSS for the meeting details
 div {
   margin-bottom: 20px;
   padding: 10px;
@@ -31,4 +31,22 @@ form button {
 
 form button:hover {
   background-color: #0056b3;
+} */
+
+/* Styling for meeting container */
+.Meeting-minute {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.Meeting-minute p {
+  margin: 5px 0;
+}
+
+.Meeting-minute h2 {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #555;
 }

@@ -8,6 +8,7 @@ import { ServiceService } from '../../Services/service.service';
   styleUrl: './resources-data.component.css',
 })
 export class ResourcesDataComponent {
+  projectIds: string[] = [];
   resourceForm: FormGroup;
 
   constructor(private fb: FormBuilder, private service: ServiceService) {
@@ -19,6 +20,18 @@ export class ResourcesDataComponent {
       endDate: ['', Validators.required],
       comment: [''],
     });
+  }
+
+  ngOnInit() {
+    this.service.getProjectData().subscribe(
+      (response) => {
+        this.projectIds = response.items.map((item: any) => item.id);
+        console.log(this.projectIds);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   onSubmit(): void {

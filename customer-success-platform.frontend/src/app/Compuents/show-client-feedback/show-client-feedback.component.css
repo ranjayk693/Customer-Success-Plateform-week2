@@ -17,3 +17,10 @@
 .feedback-table th {
   background-color: #f2f2f2;
 }
+
+button {
+  background-color: red;
+  color: white;
+  padding: 8px;
+  border: none;
+}

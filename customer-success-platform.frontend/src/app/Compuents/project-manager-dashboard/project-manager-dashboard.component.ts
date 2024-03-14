@@ -22,7 +22,7 @@ export class ProjectManagerDashboardComponent {
   IsMeeting: boolean = true;
   IsFeedback: boolean = false;
   IsProjectUpdate: boolean = false;
-
+  IsShowProject: boolean = false;
   // Harcoded role as authtication part is remaining
   users: any = [{ name: 'Dipa Di', role: 'project Manager' }];
 
@@ -30,19 +30,29 @@ export class ProjectManagerDashboardComponent {
   onMetting() {
     this.IsFeedback = false;
     this.IsProjectUpdate = false;
+    this.IsShowProject = false;
     this.IsMeeting = true;
   }
 
   onViewFeedback(): any {
     this.IsMeeting = false;
     this.IsProjectUpdate = false;
+    this.IsShowProject = false;
     this.IsFeedback = true;
   }
 
   onAddProjectUpdate() {
     this.IsMeeting = false;
     this.IsFeedback = false;
+    this.IsShowProject = false;
     this.IsProjectUpdate = true;
+  }
+
+  onShowProject() {
+    this.IsMeeting = false;
+    this.IsFeedback = false;
+    this.IsProjectUpdate = false;
+    this.IsShowProject = true;
   }
 
   logout() {

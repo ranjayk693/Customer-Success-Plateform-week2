@@ -12,7 +12,7 @@ export class ClientMeetingComponent {
 
   constructor(private service: ServiceService) {
     this.service.getMeetingMinuteData().subscribe((response) => {
-      this.meetingMinutes=response.item;
+      this.meetingMinutes = response.items;
     });
   }
 }

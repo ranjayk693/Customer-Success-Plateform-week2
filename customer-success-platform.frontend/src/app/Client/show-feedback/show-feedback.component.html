@@ -1,0 +1,116 @@
+<!-- <div class="table-container">
+  <table class="feedback-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Project ID</th>
+        <th>Feedback Type</th>
+        <th>Date Received</th>
+        <th>Details</th>
+        <th>Action Taken</th>
+        <th>Closure Date</th>
+        <th>Action Item</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if(clientfeedback.length){ @for(feedback of clientfeedback ;track
+      $index){
+      <tr>
+        <td>{{ feedback.id }}</td>
+        <td>{{ feedback.projectId }}</td>
+        <td>{{ feedback.feedbackType }}</td>
+        <td>{{ feedback.dateReceived }}</td>
+        <td>{{ feedback.details }}</td>
+        <td>{{ feedback.actionTaken }}</td>
+        <td>{{ feedback.closureDate }}</td>
+        <td><button (click)="onDelete(feedback.id)">Delete</button></td>
+      </tr>
+      } } @else {
+      <tr>
+        <td colspan="8">No Data Found In Database</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div> -->
+
+<table>
+  <thead>
+    <tr>
+      <!-- <th>ID</th>
+      <th>Project ID</th> -->
+      <th>Feedback Type</th>
+      <th>Date Received</th>
+      <th>Details</th>
+      <th>Action Taken</th>
+      <th>Closure Date</th>
+      <th>Action Item</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(clientfeedback.length){ @for(user of clientfeedback ;track $index){
+    <tr>
+      <!-- <td>
+        {{ user.id }}
+      </td>
+
+      <td>{{ user.projectId }}</td> -->
+
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.feedbackType" />
+          <select name="" id=""></select>
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.feedbackType === 0 ? "negative" : "positive" }}
+        </div>
+      </td>
+      <td>
+        <!-- <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.dateReceived" />
+        </div>
+        <div *ngIf="!user.isEdit"> -->
+        {{ user.dateReceived }}
+        <!-- </div> -->
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.details" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.details }}
+        </div>
+      </td>
+      <td>
+        <div *ngIf="user.isEdit">
+          <input type="text" [(ngModel)]="user.actionTaken" />
+        </div>
+        <div *ngIf="!user.isEdit">
+          {{ user.actionTaken }}
+        </div>
+      </td>
+      <td>
+        <!-- <div>
+          <input type="date" [(ngModel)]="user.closureDate" />
+        </div>
+        <div *ngIf="!user.isEdit"> -->
+        {{ user.closureDate }}
+        <!-- </div> -->
+      </td>
+
+      <td>
+        <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onEdit(user)">Edit</button>
+          <button (click)="onDelete(user.id)">Delete</button>
+        </div>
+        <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+          <button (click)="onUpdate(user)">Update</button>
+          <button (click)="onCancel(user)">Cancel</button>
+        </div>
+      </td>
+    </tr>
+    }}@else {
+    <td colspan="6">No Data found</td>
+    }
+  </tbody>
+</table>

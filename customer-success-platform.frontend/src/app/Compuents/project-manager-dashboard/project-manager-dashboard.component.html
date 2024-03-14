@@ -18,7 +18,8 @@
         <li (click)="onMetting()">Add meeting</li>
         <li (click)="onViewFeedback()">View Client Feedback</li>
         <li (click)="onAddProjectUpdate()">Add Project Update</li>
-        <li>Add Employee</li>
+        <li (click)="onShowProject()">Show Project Update</li>
+
         <li><h2>Setting</h2></li>
       </ul>
     </section>
@@ -29,9 +30,12 @@
       } @else if(IsProjectUpdate){
       <app-project-updates></app-project-updates>
       }@else if(IsFeedback){
-      <app-show-client-feedback></app-show-client-feedback>
-      } @else{
-      <!-- Nothing to do here -->
+      <!-- <app-show-feedback-manager></app-show-feedback-manager> -->
+      <!-- <app-show-feedback></app-show-feedback> -->
+      <app-show-feedback-manager></app-show-feedback-manager>
+
+      } @else if(IsShowProject){
+      <app-manager-project-update></app-manager-project-update>
       }
     </section>
   </section>

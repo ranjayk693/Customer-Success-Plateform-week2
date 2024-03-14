@@ -5,6 +5,7 @@ import { AdminDashboardComponent } from './Compuents/admin-dashboard/admin-dashb
 import { AuditorDashboardComponent } from './Compuents/auditor-dashboard/auditor-dashboard.component';
 import { ProjectManagerDashboardComponent } from './Compuents/project-manager-dashboard/project-manager-dashboard.component';
 import { ClientDashboardComponent } from './Compuents/client-dashboard/client-dashboard.component';
+import { AuthModule } from '@auth0/auth0-angular';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },

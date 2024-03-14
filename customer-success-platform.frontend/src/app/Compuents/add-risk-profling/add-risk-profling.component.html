@@ -1,0 +1,66 @@
+<p>add-stakeholder works!</p>
+<div class="form-container">
+  <form [formGroup]="ProjectRiskProfiling" (ngSubmit)="onSubmit()">
+    <label for="projectId">Project ID</label>
+    <select name="" id="projectId" formControlName="projectId">
+      <option value="" default hidden>Select the Project IDs</option>
+      <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+    </select>
+
+    <label for="riskType">Risk Type</label>
+    <select id="riskType" formControlName="riskType" required>
+      <option value="" hidden default>Risk type</option>
+      <option value="0">Financial</option>
+      <option value="1">Operational</option>
+      <option value="2">Technical</option>
+      <option value="3">HumanResource</option>
+      <option value="4">External</option>
+    </select>
+
+    <label for="description">Description</label>
+    <input
+      type="text"
+      formControlName="description"
+      id="description"
+      required
+      placeholder="enter the description"
+    />
+    <label for="severity">Severity </label>
+    <select id="severity" formControlName="severity">
+      <option value="" hidden default>Select the Severity</option>
+      <option value="0">Low</option>
+      <option value="1">Medium</option>
+      <option value="2">High</option>
+    </select>
+
+    <label for="impact">Impact </label>
+    <select id="impact" formControlName="impact">
+      <option value="" hidden default>Select the Impact Level</option>
+      <option value="0">Low</option>
+      <option value="1">Medium</option>
+      <option value="2">High</option>
+    </select>
+
+    <label for="remedialSteps">RemedialSteps</label>
+    <input
+      type="text"
+      formControlName="remedialSteps"
+      id="remedialSteps"
+      placeholder="enter the RemedialSteps"
+    />
+
+    <label for="status">Status</label>
+    <input
+      type="text"
+      formControlName="status"
+      id="status"
+      placeholder="enter the Status"
+    />
+    <label for="closureDate">closureDate</label>
+    <input type="date" formControlName="closureDate" id="closureDate" />
+
+    <button type="submit" [disabled]="!ProjectRiskProfiling.valid">
+      Submit
+    </button>
+  </form>
+</div>

@@ -33,4 +33,34 @@ export class ViewResourcesComponent {
       );
     }
   }
+  onCancel(item: any) {
+    Object.assign(item, item.editCopy);
+    item.isEdit = false;
+    console.log(item);
+  }
+
+  onEdit(item: any) {
+    item.editCopy = { ...item };
+    item.isEdit = true;
+    console.log(item);
+  }
+
+  onUpdate(item: any) {
+    const data = {
+      projectId: item.projectId,
+      resourceName: item.resourceName,
+      role: item.role,
+      startDate: item.startDate,
+      endDate: item.endDate,
+      comment: item.comment,
+    };
+    this.service.putResourcesData(item.id, data).subscribe(
+      (response) => {},
+      (error) => {
+        Object.assign(item, item.editCopy);
+        alert('Something went wrong while updating the data');
+      }
+    );
+    item.isEdit = false;
+  }
 }
