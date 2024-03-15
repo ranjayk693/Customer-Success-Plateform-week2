@@ -1,4 +1,3 @@
-/* customer-support.component.css */
 
 .container {
   display: flex;
@@ -59,9 +58,12 @@
 }
 
 .side-nav {
-  width: 200px;
   padding: 1rem;
   background-color: #f2f2f2;
+}
+
+.add-emp {
+  width: 107px;
 }
 
 .side-nav button {
@@ -94,6 +96,7 @@
 }
 
 .main-content {
+  width: 80%;
   flex: 1;
   padding: 1rem;
 }
@@ -132,3 +135,37 @@ li:hover {
 .user-info span {
   font-weight: 800;
 }
+
+/**/
+.horizontal-nav {
+  overflow-x: auto;
+  white-space: nowrap; 
+}
+
+.horizontal-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin:0;
+  margin-bottom: 10px;
+  display: flex; 
+}
+
+.horizontal-nav li {
+  margin-right: 20px; 
+}
+
+.horizontal-nav li {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.horizontal-nav li:hover {
+  background-color: #dcdcdc;
+}
+
+.item{
+  margin-top: 20px;
+}
+

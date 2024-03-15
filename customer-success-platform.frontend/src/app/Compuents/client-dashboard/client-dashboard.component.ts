@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-client-dashboard',
@@ -6,8 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './client-dashboard.component.css',
 })
 export class ClientDashboardComponent {
+  constructor(private router:Router){
+
+  }
   logout() {
-    //implimentation for logout
+    this.router.navigate([''])
   }
 
   IsUpdate: boolean = true;

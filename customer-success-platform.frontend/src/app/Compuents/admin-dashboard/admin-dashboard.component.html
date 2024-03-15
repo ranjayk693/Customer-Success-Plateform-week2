@@ -1,6 +1,6 @@
 <section class="container">
   <section class="header">
-    <h1>CS Customer Support(Admin Portal)</h1>
+    <h1>CS Customer Support(Auditor Portal)</h1>
     <section class="search-bar">
       <input type="text" placeholder="Search" />
       <button>Search</button>
@@ -32,24 +32,22 @@
     </section>
  
     <section class="main-content">
-
       <section class="horizontal-nav">
-        <!-- <button class="slider-button" >◀️</button> -->
         <ul>
-          <li (click)="ShowApproveTeam()">Show Approve Team</li>
           <li (click)="ShowResources()">Show Resources</li>
           <li (click)="ShowRisk()">Show Risk Profie</li>
+          <li (click)="ShowVersion()">Show Version History</li>
+          <li (click)="ShowAudit()">Show Audit History</li>
+          <li (click)="ShowApproveTeam()">Show Approve Team</li>
           <li (click)="ShowStakeHolder()">Show Stakeholders</li>
           <li (click)="ShowPhases()">Show Phases</li>
           <li (click)="ShowSprint()">Show Sprint</li>
-          <li (click)="ShowVersion()">Show Version History</li>
-          <li (click)="ShowAudit()">Show Audit History</li>
           <li (click)="ShowProjectUpdate()">Show project update</li>
           <li (click)="ShowClientFeedback()">Show Client Feedback</li>
         </ul>
-        <!-- <button class="slider-button" >▶️</button> -->
       </section>
-      <section class="item">
+      <button (click)="SavePDF()" class="export-pdf-btn"  >Export PDf</button>
+      <section class="item" id="content">
         <ng-container [ngSwitch]="activeSection">
           <app-create-project *ngSwitchCase="'NewProject'"></app-create-project>
           <app-resources-data *ngSwitchCase="'AddResources'"></app-resources-data>
@@ -61,7 +59,6 @@
           <app-add-audit-history  *ngSwitchCase="'AddAudit'"></app-add-audit-history>
           <app-add-verion-history *ngSwitchCase="'AddVersion'"></app-add-verion-history>
           <app-project-budget *ngSwitchCase="'AddBudget'"></app-project-budget>
-  
           <app-view-approve-team *ngSwitchCase="'ShowApproveTeam'"></app-view-approve-team>
           <app-view-resources *ngSwitchCase="'ShowResources'"></app-view-resources>
           <app-show-client-feedback *ngSwitchCase="'ShowClientFeedback'"></app-show-client-feedback>
@@ -71,6 +68,7 @@
           <app-edit-delete-audit-history *ngSwitchCase="'showAudit'"></app-edit-delete-audit-history>
           <app-edit-delete-phases-milestone *ngSwitchCase="'showPhases'"></app-edit-delete-phases-milestone>
           <app-edit-delete-stakeholder *ngSwitchCase="'ShowStakeHolder'"></app-edit-delete-stakeholder>
+          <app-edit-delete-version-history *ngSwitchCase="'VersionHistory'"></app-edit-delete-version-history>
         </ng-container>
       </section>
     </section>

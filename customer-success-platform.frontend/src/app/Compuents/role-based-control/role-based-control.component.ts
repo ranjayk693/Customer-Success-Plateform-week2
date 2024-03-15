@@ -24,5 +24,7 @@ export class RoleBasedControlComponent {
   //   );
   // }
 
+  constructor(private auth:AuthService){}
+
   
 }

@@ -1,6 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServiceService } from '../../Services/service.service';
+import { Router } from '@angular/router';
+// import jsPDF from 'jspdf';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,14 +12,26 @@ import { ServiceService } from '../../Services/service.service';
   styleUrl: './admin-dashboard.component.css',
 })
 export class AdminDashboardComponent {
-
+  constructor(private router:Router){}
   users: any = [{ name: 'Chintan sir', role: 'Admin' }];
+  activeSection: string = 'ShowClientFeedback';
+SavePDF(){
+  const element = document.getElementById('content');
+    if (element) {
+      html2canvas(element).then((canvas) => {
+        const width = canvas.width;
+        const height = canvas.height;
+        const pdf = new jsPDF('l', 'pt');
+        const imgData = canvas.toDataURL('image/png');
+        pdf.addImage(imgData, 'PNG',0, 0, width, height);
+        pdf.save('web-page-content.pdf');
+      });
+    }     
+}
 
   logout() {
-    // logout
+    this.router.navigate([''])
   }
-
-  activeSection: string = '';
 
   createProject() {
     this.activeSection = 'NewProject';
@@ -52,7 +68,6 @@ export class AdminDashboardComponent {
   AddPhases(){
     this.activeSection='AddPhaseMileStone'
   }
-  // Define other methods similarly
   
   ShowApproveTeam() {
     this.activeSection = 'ShowApproveTeam';
@@ -62,15 +77,15 @@ export class AdminDashboardComponent {
     this.activeSection = 'ShowResources';
   }
 
-
-
   ShowRisk(){
     this.activeSection='ShowRisk'
   }
   ShowSprint(){
     this.activeSection='ShowSprint'
   }
-  ShowVersion(){}
+  ShowVersion(){
+    this.activeSection="VersionHistory"
+  }
   ShowAudit(){
     this.activeSection='showAudit'
   }

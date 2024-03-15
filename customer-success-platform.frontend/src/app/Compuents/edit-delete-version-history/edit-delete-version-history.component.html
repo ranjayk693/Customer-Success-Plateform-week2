@@ -1,0 +1,108 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Project ID</th>
+        <th>version</th>
+        <th>Type</th>
+        <th>Change</th>
+        <th>Change Reason</th>
+        <th>Created By</th>
+        <th>Revision Date</th>
+        <th>Approval Date</th>
+        <th>Approved By</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if(projectVerionHistory.length){ @for(user of projectVerionHistory ;track
+      $index){
+      <tr>
+        <td>
+          {{ user.id }}
+        </td>
+        <td>{{ user.projectId }}</td>
+        <td>
+          <div *ngIf="user.isEdit">
+            <input type="number" [(ngModel)]="user.version" />
+          </div>
+          <div *ngIf="!user.isEdit">
+            {{ user.version }}
+          </div>
+        </td>
+        <td>
+          <div *ngIf="user.isEdit">
+            <input type="text" [(ngModel)]="user.type" />
+          </div>
+          <div *ngIf="!user.isEdit">
+            {{ user.type }}
+          </div>
+        </td>
+        <td>
+          <div *ngIf="user.isEdit">
+            <input type="text" [(ngModel)]="user.change" />
+          </div>
+          <div *ngIf="!user.isEdit">
+            {{ user.change }}
+          </div>
+        </td>
+        <td>
+          <div *ngIf="user.isEdit">
+            <input type="text" [(ngModel)]="user.changeReason" />
+          </div>
+          <div *ngIf="!user.isEdit">
+            {{ user.changeReason }}
+          </div>
+        </td>
+        <td>
+          <div *ngIf="user.isEdit">
+            <input type="text" [(ngModel)]="user.createdBy" />
+          </div>
+          <div *ngIf="!user.isEdit">
+            {{ user.createdBy }}
+          </div>
+        </td>
+  
+        
+        <td>
+          <div *ngIf="user.isEdit">
+            <input type="datetime-local" [(ngModel)]="user.revisionDate" />
+          </div>
+          <div *ngIf="!user.isEdit">
+            {{ user.revisionDate }}
+          </div>
+        </td>
+        <td>
+          <div *ngIf="user.isEdit">
+            <input type="datetime-local" [(ngModel)]="user.approvalDate" />
+          </div>
+          <div *ngIf="!user.isEdit">
+            {{ user.approvalDate }}
+          </div>
+        </td>
+        <td>
+          <div *ngIf="user.isEdit">
+            <input type="text" [(ngModel)]="user.approvedBy" />
+          </div>
+          <div *ngIf="!user.isEdit">
+            {{ user.approvedBy }}
+          </div>
+        </td>
+
+        <td>
+            <div *ngIf="!user.isEdit" class="btn-container" class="btn-container">
+              <button (click)="onEdit(user)">Edit</button>
+              <button (click)="deleteVerionHistory(user.id)">Delete</button>
+            </div>
+            <div *ngIf="user.isEdit" class="btn-container" class="btn-container">
+              <button (click)="onUpdate(user)">Update</button>
+              <button (click)="onCancel(user)">Cancel</button>
+            </div>
+          </td>
+      </tr>
+      }}@else {
+      <td colspan="10">No Data found</td>
+      }
+    </tbody>
+  </table>
+  

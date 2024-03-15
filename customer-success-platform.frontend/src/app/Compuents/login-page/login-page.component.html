@@ -1,31 +1,17 @@
-<!-- <section class="login-container">
-  <h1>Login Page</h1>
-  <section class="login">
-    <Button routerLink="/admin" routerLinkActive="active"
-      >Login As Admin</Button
-    >
-    <Button routerLink="/auditor" (click)="auth.loginWithRedirect()"
-      >Login As Auditor</Button
-    >
-    <Button routerLink="manager">Login As Project Manager</Button>
-    <Button routerLink="client">Login As Client</Button>
-  </section>
-</section> -->
-
-<!-- <div class="login-container">
-  <h2>Login</h2>
+<div class="login-container">
   <form>
+    <h2>Login</h2>
     <div class="form-group">
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required />
+      <input type="text" id="username" name="username" required [(ngModel)]="username" placeholder="
+      enter the user id">
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
+      <input type="password" id="password" name="password" required [(ngModel)]="password" placeholder="
+      enter the password">
     </div>
-    <button type="submit">Login</button>
-    <button type="button" (click)="auth.loginWithRedirect()">
-      Login as Google
-    </button>
+    <button type="submit" (click)="onSubmit()">Login</button>
   </form>
-</div> -->
+  <button type="button" (click)="onAuthRedirect()">Login With Auth0</button>
+</div>

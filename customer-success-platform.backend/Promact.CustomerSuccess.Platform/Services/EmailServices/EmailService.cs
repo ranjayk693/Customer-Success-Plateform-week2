@@ -20,19 +20,15 @@ namespace Promact.CustomerSuccess.Platform.Services.EmailServices
         public async Task SendEmailAsync(EmailDto request)
         {
             var email = new MimeMessage();
-            //email.Sender = MailboxAddress.Parse(_emailSettings.Email);
             email.Sender = MailboxAddress.Parse("ranjayk693social@gmail.com");
             email.To.Add(MailboxAddress.Parse(request.To));
-            //email.To.Add(MailboxAddress.Parse("ranjayk693@gmail.com"));
             email.Subject = request.Subject;
             var builder = new BodyBuilder();
             builder.HtmlBody = request.Body;
             email.Body = builder.ToMessageBody();
 
             using var smtp = new SmtpClient();
-            //smtp.Connect(_emailSettings.Host, 587, SecureSocketOptions.StartTls);
             smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            //smtp.Authenticate(_emailSettings.Email, _emailSettings.Password);
             smtp.Authenticate("ranjayk693social@gmail.com", "pokd uice dvjf ffmm");
             await smtp.SendAsync(email);
             smtp.Disconnect(true);

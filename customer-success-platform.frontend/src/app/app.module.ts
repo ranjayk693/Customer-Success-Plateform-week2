@@ -42,6 +42,7 @@ import { EditDeleteAuditHistoryComponent } from './Compuents/edit-delete-audit-h
 import { AddVerionHistoryComponent } from './Compuents/add-verion-history/add-verion-history.component';
 import { RoleBasedControlComponent } from './Compuents/role-based-control/role-based-control.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { EditDeleteVersionHistoryComponent } from './Compuents/edit-delete-version-history/edit-delete-version-history.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     EditDeleteAuditHistoryComponent,
     AddVerionHistoryComponent,
     RoleBasedControlComponent,
+    EditDeleteVersionHistoryComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -274,4 +274,9 @@ export class ServiceService {
       `https://localhost:44347/api/app/version-history/${id}`
     );
   }
+
+  /*Role Based */
+  getEmail(): Observable<any> {
+    return this.http.get('https://localhost:44347/api/app/role-based');
+  }
 }
