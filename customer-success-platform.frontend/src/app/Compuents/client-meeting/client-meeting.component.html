@@ -1,11 +1,13 @@
-@if(meetingMinutes.length){ @for(item of meetingMinutes ;track $index){
-<section class="Meeting-minute">
-  <p>Project ID: {{ item.projectId }}</p>
-  <p>Meeting Date: {{ item.meetingDate }}</p>
-  <p>MoM Link: {{ item.moMLink }}</p>
-  <p>Duration: {{ item.duration }} minute</p>
-  <p>Comments: {{ item.comments }}</p>
-</section>
-} } @else {
-<h2>No metting schedule</h2>
-}
+<ng-container *ngIf="hasMeetingMinutes(); else noMeeting">
+  <section class="Meeting-minute" *ngFor="let item of meetingMinutes; let i = index;">
+    <p>Project ID: {{ item.projectId }}</p>
+    <p>Meeting Date: {{ item.meetingDate }}</p>
+    <p>MoM Link: {{ item.moMLink }}</p>
+    <p>Duration: {{ item.duration }} minute</p>
+    <p>Comments: {{ item.comments }}</p>
+  </section>
+</ng-container>
+
+<ng-template #noMeeting>
+  <h2>No meeting schedule</h2>
+</ng-template>

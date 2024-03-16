@@ -279,4 +279,13 @@ export class ServiceService {
   getEmail(): Observable<any> {
     return this.http.get('https://localhost:44347/api/app/role-based');
   }
+
+  getEmailById(id:string):Observable<any>{
+    return this.http.get(`https://localhost:44347/api/app/role-based/${id}`)
+  }
+
+
+
+  /*This portion store the project ID */
+  id:string='';
 }

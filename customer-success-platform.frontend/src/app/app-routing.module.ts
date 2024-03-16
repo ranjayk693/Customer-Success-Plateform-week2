@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent },
   { path: 'auditor', component: AuditorDashboardComponent },
   { path: 'manager', component: ProjectManagerDashboardComponent },
-  { path: 'client', component: ClientDashboardComponent },
+  { path: 'client/:id', component: ClientDashboardComponent },
   {path:'rediretinglogin',component:RoleBasedControlComponent}
 ];
 

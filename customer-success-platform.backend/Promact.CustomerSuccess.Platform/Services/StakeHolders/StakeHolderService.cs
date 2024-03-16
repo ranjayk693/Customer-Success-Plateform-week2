@@ -21,8 +21,11 @@ namespace Promact.CustomerSuccess.Platform.Services.StakeHolders
             EmailDto emailDto = new EmailDto
             {
                 To = input.email,
-                Subject = "New Project is assigned",
-                Body = "Project is created"
+                Subject = $"Project is Created",
+                Body = $"<h1>Dear {input.Name},<br/></h1>" +
+                $"<p>You are now stakeholder of the assigned project please checkout the dashboard of Customer sucess platefrom</p>"+
+                "<h4>Thanks and Regard</h4>"+
+                "<h4>Promact Infotech</h4>"
             };
 
             try
@@ -35,5 +38,8 @@ namespace Promact.CustomerSuccess.Platform.Services.StakeHolders
             }
             return base.CreateAsync(input);
         }
+
+      
+       
     }
 }

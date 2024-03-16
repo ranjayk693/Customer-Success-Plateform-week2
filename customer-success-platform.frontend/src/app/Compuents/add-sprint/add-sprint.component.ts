@@ -23,7 +23,7 @@ export class AddSprintComponent {
 
   ngOnInit(): void {
     this.service.getPhaseMileStone().subscribe((res) => {
-      console.log(res);
+      // console.log(res);
       this.projectIds = res.items.map((item: any) => item.id);
     });
   }

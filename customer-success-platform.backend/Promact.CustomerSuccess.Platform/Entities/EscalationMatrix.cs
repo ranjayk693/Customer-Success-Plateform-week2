@@ -11,7 +11,7 @@ namespace Promact.CustomerSuccess.Platform.Entities
         public required Guid ProjectId { get; set; }
         public virtual Project? Project { get; set; }        
         public override object?[] GetKeys()
-        {
+        {   
             throw new NotImplementedException();
         }
     }

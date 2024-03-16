@@ -2,7 +2,11 @@
   <section class="form-container">
     <section>
       <label for="projectID">Project ID</label>
-      <input type="text" id="projectID" formControlName="ProjectId" placeholder="Enter your Project ID" />
+      <!-- <input type="text" id="projectID" formControlName="ProjectId" placeholder="Enter your Project ID" /> -->
+      <select id="projectID" formControlName="ProjectId">
+        <option value="" hidden default>Select the Project ID</option>
+        <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+      </select>
     </section>
     <section class="form-type">
       <label for="type">Type:</label>

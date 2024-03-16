@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { AuthService } from '@auth0/auth0-angular';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ServiceService } from '../../Services/service.service';
 
 @Component({
   selector: 'app-client-dashboard',
@@ -8,43 +8,41 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrl: './client-dashboard.component.css',
 })
 export class ClientDashboardComponent {
-  constructor(private router:Router){
+  id:string='';
+  name:string='';
+  activeSection: string = 'projectUpdate';
+  constructor(private router:Router ,private route:ActivatedRoute,private service:ServiceService){
+    this.route.params.subscribe(params=>{
+      this.id=params['id'];
+    })
+  
+    this.service.getEmailById(this.id).subscribe(res=>{
+      console.log(res.projectId)
+      this.service.id=res.projectId;
+      this.name=res.name;
+    })
+
 
   }
   logout() {
     this.router.navigate([''])
   }
 
-  IsUpdate: boolean = true;
-  IsMeeting: boolean = false;
-  IsFeedback: boolean = false;
-  IsShowFeedback: boolean = false;
-
   onMeeting() {
-    this.IsUpdate = false;
-    this.IsFeedback = false;
-    this.IsShowFeedback = false;
-    this.IsMeeting = true;
+   this.activeSection='ShowMeeting'
   }
 
   onFeedback() {
-    this.IsUpdate = false;
-    this.IsMeeting = false;
-    this.IsShowFeedback = false;
-    this.IsFeedback = true;
+    this.activeSection='AddFeedback'
   }
 
   CheckProjectUpdate() {
-    this.IsFeedback = false;
-    this.IsMeeting = false;
-    this.IsShowFeedback = false;
-    this.IsUpdate = true;
+    this.activeSection='projectUpdate'
   }
 
   onShowFeedback() {
-    this.IsFeedback = false;
-    this.IsMeeting = false;
-    this.IsUpdate = false;
-    this.IsShowFeedback = true;
+    this.activeSection='ShowFeedback'
   }
+
+  
 }

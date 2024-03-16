@@ -1,20 +1,24 @@
-/* Style for the form */
+
 form {
   margin-bottom: 20px;
 }
 
-/* Style for the input fields */
+
+
+select,
+input[type="number"],
 input[type="text"],
 input[type="datetime-local"] {
-  width: 100%;
+  width: 98%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-/* Style for the button */
+
 button[type="submit"] {
+  display: block;
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
@@ -23,7 +27,7 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-/* Style for the list of meeting minutes */
+
 div {
   margin-bottom: 20px;
   padding: 10px;
@@ -31,7 +35,7 @@ div {
   border-radius: 5px;
 }
 
-/* Style for the delete button */
+
 button {
   padding: 5px 10px;
   background-color: #dc3545;
@@ -40,3 +44,33 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+/**/
+.meeting-minute-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+
+
+.meeting-minute-item p {
+  margin: 5px 0;
+}
+
+.meeting-minute-item button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.meeting-minute-item button:hover {
+  background-color: #c82333;
+}
+

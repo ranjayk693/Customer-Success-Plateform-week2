@@ -136,3 +136,28 @@ li:hover {
 .user-info span {
   font-weight: 800;
 }
+
+/**/
+.side-nav {
+  background-color: #f1f1f1; 
+  padding: 10px;
+}
+
+.side-nav ul {
+  list-style-type: none; 
+}
+
+.side-nav li {
+  padding: 10px;
+  cursor: pointer; 
+}
+
+.side-nav li:hover {
+  background-color: #dcdcdc; 
+}
+
+.side-nav li h2 {
+  margin-top: 20px; 
+  color: #333; 
+}
+

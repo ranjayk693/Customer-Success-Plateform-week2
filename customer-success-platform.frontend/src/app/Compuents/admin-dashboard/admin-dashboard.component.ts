@@ -2,7 +2,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServiceService } from '../../Services/service.service';
 import { Router } from '@angular/router';
-// import jsPDF from 'jspdf';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -100,6 +99,9 @@ SavePDF(){
   }
   ShowPhases(){
     this.activeSection='showPhases'
+  }
+  ShowEsclationMatrix(){
+    this.activeSection='ShowEscalation'
   }
 
 

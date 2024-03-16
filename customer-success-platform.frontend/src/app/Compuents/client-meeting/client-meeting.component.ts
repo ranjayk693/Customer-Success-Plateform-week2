@@ -15,4 +15,7 @@ export class ClientMeetingComponent {
       this.meetingMinutes = response.items;
     });
   }
+  hasMeetingMinutes(): boolean {
+    return this.meetingMinutes.length > 0;
+  }
 }

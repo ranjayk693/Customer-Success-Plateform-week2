@@ -8,7 +8,7 @@
 
     <!-- header option for logout and name of the manger -->
     <section class="user-info">
-      <span>Ranjay Kumar </span>
+      <span>{{name}} </span>
       <button (click)="logout()">Logout</button>
     </section>
   </section>
@@ -23,15 +23,12 @@
       </ul>
     </section>
     <section class="main-content">
-      @if(IsUpdate){
-      <app-show-client-general-update></app-show-client-general-update>
-      }@else if(IsMeeting){
-      <app-client-meeting></app-client-meeting>
-      } @else if(IsFeedback){
-      <app-client-feedback></app-client-feedback>
-      } @else if(IsShowFeedback) {
-      <app-show-feedback></app-show-feedback>
-      }
+      <ng-container [ngSwitch]="activeSection">
+        <app-show-client-general-update *ngSwitchCase="'projectUpdate'"></app-show-client-general-update>
+        <app-client-meeting *ngSwitchCase="'ShowMeeting'"></app-client-meeting>
+        <app-client-feedback *ngSwitchCase="'AddFeedback'"></app-client-feedback> 
+        <app-show-feedback *ngSwitchCase="'ShowFeedback'"></app-show-feedback>
+      </ng-container>
     </section>
   </section>
 </section>

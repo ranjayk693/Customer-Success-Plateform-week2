@@ -7,7 +7,6 @@
     </section>
     <section class="user-info">
       <span>{{ users[0].name }}({{ users[0].role }}) </span>
-
       <button (click)="logout()">Logout</button>
     </section>
   </section>
@@ -26,9 +25,6 @@
         <li (click)="AddVerion()"><button>+</button>Add Version History</li>
         <li (click)="AddAudit()"><button>+</button>Add AuditHistory</li>
       </ul>
-        
-    
-     
     </section>
  
     <section class="main-content">
@@ -44,6 +40,7 @@
           <li (click)="ShowSprint()">Show Sprint</li>
           <li (click)="ShowProjectUpdate()">Show project update</li>
           <li (click)="ShowClientFeedback()">Show Client Feedback</li>
+          <li (click)="ShowEsclationMatrix()">Show Esclation Matrix</li>
         </ul>
       </section>
       <button (click)="SavePDF()" class="export-pdf-btn"  >Export PDf</button>
@@ -69,6 +66,7 @@
           <app-edit-delete-phases-milestone *ngSwitchCase="'showPhases'"></app-edit-delete-phases-milestone>
           <app-edit-delete-stakeholder *ngSwitchCase="'ShowStakeHolder'"></app-edit-delete-stakeholder>
           <app-edit-delete-version-history *ngSwitchCase="'VersionHistory'"></app-edit-delete-version-history>
+          <app-escalation-matrix *ngSwitchCase="'ShowEscalation'"></app-escalation-matrix>
         </ng-container>
       </section>
     </section>

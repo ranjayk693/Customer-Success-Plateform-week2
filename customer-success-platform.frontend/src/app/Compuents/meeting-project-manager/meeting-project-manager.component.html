@@ -1,10 +1,9 @@
 <!-- Form Data For metting minute in which the meeting is going to schedule-->
 <form [formGroup]="meetingMinuteForm" (submit)="addMeetingMinute()">
-  <input
-    type="text"
-    formControlName="projectId"
-    placeholder="Project the Valid Project ID"
-  />
+  <select id="projectID" formControlName="projectId">
+    <option value="" hidden default>Select the Project ID</option>
+    <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>
+  </select>
   <input
     type="datetime-local"
     formControlName="meetingDate"
@@ -12,7 +11,7 @@
   />
   <input type="text" formControlName="moMLink" placeholder="MoM Link" />
   <input
-    type="text"
+    type="number"
     formControlName="duration"
     placeholder="Duration In Minute"
   />
@@ -20,15 +19,20 @@
   <button type="submit">Add Meeting Minute</button>
 </form>
 
-<!-- If the data is Get from the database then display all the data element -->
-@if(meetingMinutes.length){ @for(meetingMinute of meetingMinutes; track $index){
-<p>Project ID: {{ meetingMinute.projectId }}</p>
-<p>Meeting Date: {{ meetingMinute.meetingDate }}</p>
-<p>MoM Link: {{ meetingMinute.moMLink }}</p>
-<p>Duration: {{ meetingMinute.duration }}</p>
-<p>Comments: {{ meetingMinute.comments }}</p>
-<button (click)="deleteMeetingMinute(meetingMinute.id)">Delete</button>
-} } @else {
-<!-- If no data is present then it will display the simple text -->
-<h2>No metting is Scheduled</h2>
-}
+<section > 
+<ng-container *ngIf="meetingMinutes.length > 0; else noMeeting" >
+  <ng-container *ngFor="let meetingMinute of meetingMinutes; let i = index;">
+    <section class="meeting-minute-item">
+      <p>Project ID: {{ meetingMinute.projectId }}</p>
+    <p>Meeting Date: {{ meetingMinute.meetingDate }}</p>
+    <p>MoM Link: {{ meetingMinute.moMLink }}</p>
+    <p>Duration: {{ meetingMinute.duration }}</p>
+    <p>Comments: {{ meetingMinute.comments }}</p>
+    <button (click)="deleteMeetingMinute(meetingMinute.id)">Delete</button>
+    </section>
+  </ng-container>
+</ng-container>
+<ng-template #noMeeting>
+  <h2>No meeting is scheduled</h2>
+</ng-template>
+</section>

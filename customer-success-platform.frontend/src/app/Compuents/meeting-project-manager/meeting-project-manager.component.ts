@@ -10,7 +10,7 @@ import { ServiceService } from '../../Services/service.service';
 export class MeetingProjectManagerComponent {
   // Initializating the array in which it store all the meeting schedule present in database
   meetingMinutes: any[] = [];
-
+  projectIds:any[]=[]
   // Form to take the input data from the user
   meetingMinuteForm: FormGroup;
 
@@ -23,6 +23,9 @@ export class MeetingProjectManagerComponent {
       duration: ['', Validators.required],
       comments: ['', Validators.required],
     });
+    this.service.getProjectData().subscribe((res)=>{
+      this.projectIds = res.items.map((item: any) => item.id);
+    })
   }
 
   // Initiliazting the data after the compunent is build
@@ -53,9 +56,10 @@ export class MeetingProjectManagerComponent {
           // Optionally reset the form
           this.meetingMinutes.push(data);
           this.meetingMinuteForm.reset();
+          this.meetingMinuteForm.get('projectId')!.setValue(''); 
         },
         (error) => {
-          alert('Invalid ProjectId input');
+          alert('Invalid form format');
           // console.error('Error adding meeting minute:', error);
         }
       );

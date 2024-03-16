@@ -10,7 +10,7 @@ import { ServiceService } from '../../Services/service.service';
 export class ClientFeedbackComponent {
   // Feedback form when client enter something
   feedbackForm: FormGroup;
-
+  projectIds:any=[];
   // Form Initlixzation in constructor and service injection
   constructor(private fb: FormBuilder, private service: ServiceService) {
     this.feedbackForm = this.fb.group({
@@ -26,6 +26,9 @@ export class ClientFeedbackComponent {
         { value: new Date().toISOString().split('T')[0], disabled: true },
       ],
     });
+    this.service.getProjectData().subscribe((res)=>{
+      this.projectIds = res.items.map((item: any) => item.id);
+    })
   }
 
   // Sent the feedback to the server

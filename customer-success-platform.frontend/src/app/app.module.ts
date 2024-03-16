@@ -43,8 +43,12 @@ import { AddVerionHistoryComponent } from './Compuents/add-verion-history/add-ve
 import { RoleBasedControlComponent } from './Compuents/role-based-control/role-based-control.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { EditDeleteVersionHistoryComponent } from './Compuents/edit-delete-version-history/edit-delete-version-history.component';
+import { EscalationMatrixComponent } from './Compuents/escalation-matrix/escalation-matrix.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
-@NgModule({
+@NgModule({  
   declarations: [
     AppComponent,
     ClientMeetingComponent,
@@ -61,7 +65,6 @@ import { EditDeleteVersionHistoryComponent } from './Compuents/edit-delete-versi
     ShowClientFeedbackComponent,
     ShowOneClientFeedbackComponent,
     ProjectUpdatesComponent,
-
     ApprovalTeamComponent,
     ResourcesDataComponent,
     ViewResourcesComponent,
@@ -85,20 +88,22 @@ import { EditDeleteVersionHistoryComponent } from './Compuents/edit-delete-versi
     AddVerionHistoryComponent,
     RoleBasedControlComponent,
     EditDeleteVersionHistoryComponent,
-    
+    EscalationMatrixComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTableModule,
     FormsModule,
     ReactiveFormsModule,
     AuthModule.forRoot({
       domain: 'dev-ayjglpjmsuf7x6yw.us.auth0.com',
       clientId: 'prcYplvZrtAYVUqpr9xHRyR6C7zLt1AU',
       authorizationParams: {
-        redirect_uri: 'http://localhost:4200/rediretinglogin',
+        redirect_uri: window.location.origin,
       },
     }),
   ],

@@ -1,0 +1,63 @@
+<h2>Operational Escalation Matrix</h2>
+<table mat-table [dataSource]="operationalMatrix" class="mat-elevation-z8">
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef> Escalation Level </th>
+    <td mat-cell *matCellDef="let element"> Level {{ element.level }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> Role </th>
+    <td mat-cell *matCellDef="let element"> {{ element.role }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['level', 'name', 'role']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['level', 'name', 'role'];"></tr>
+</table>
+
+<h2>Financial Escalation Matrix</h2>
+<table mat-table [dataSource]="operationalMatrix" class="mat-elevation-z8">
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef> Escalation Level </th>
+    <td mat-cell *matCellDef="let element"> Level {{ element.level }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> Role </th>
+    <td mat-cell *matCellDef="let element"> {{ element.role }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['level', 'name', 'role']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['level', 'name', 'role'];"></tr>
+</table>
+
+<h2>Technical Escalation Matrix</h2>
+<table mat-table [dataSource]="operationalMatrix" class="mat-elevation-z8">
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef> Escalation Level </th>
+    <td mat-cell *matCellDef="let element"> Level {{ element.level }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> Role </th>
+    <td mat-cell *matCellDef="let element"> {{ element.role }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['level', 'name', 'role']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['level', 'name', 'role'];"></tr>
+</table>
+
