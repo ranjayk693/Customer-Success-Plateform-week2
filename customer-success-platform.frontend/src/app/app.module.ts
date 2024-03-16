@@ -47,8 +47,9 @@ import { EscalationMatrixComponent } from './Compuents/escalation-matrix/escalat
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-@NgModule({  
+@NgModule({
   declarations: [
     AppComponent,
     ClientMeetingComponent,
@@ -99,6 +100,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     AuthModule.forRoot({
       domain: 'dev-ayjglpjmsuf7x6yw.us.auth0.com',
       clientId: 'prcYplvZrtAYVUqpr9xHRyR6C7zLt1AU',
@@ -107,9 +109,7 @@ import { MatSelectModule } from '@angular/material/select';
       },
     }),
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
