@@ -23,17 +23,23 @@
         <li><h2>Setting</h2></li>
       </ul>
     </section>
-    <section class="main-content">
-      <!-- Showing the main Compunent By default it is showing Add meeting form -->
-      @if(IsMeeting){
-      <app-meeting-project-manager></app-meeting-project-manager>
-      } @else if(IsProjectUpdate){
-      <app-project-updates></app-project-updates>
-      }@else if(IsFeedback){
-      <app-show-feedback-manager></app-show-feedback-manager>
-      } @else if(IsShowProject){
-      <app-manager-project-update></app-manager-project-update>
-      }
+
+    <section class="main-content" id="content">
+      <button (click)="SavePDF()" class="export-pdf-btn">Export PDf</button>
+      <ng-container [ngSwitch]="activeSection">
+        <app-meeting-project-manager
+          *ngSwitchCase="'Addmeeting'"
+        ></app-meeting-project-manager>
+        <app-manager-project-update
+          *ngSwitchCase="'ShowProjectUpdate'"
+        ></app-manager-project-update>
+        <app-project-updates
+          *ngSwitchCase="'AddProjectUpdate'"
+        ></app-project-updates>
+        <app-show-feedback-manager
+          *ngSwitchCase="'ShowFeedback'"
+        ></app-show-feedback-manager>
+      </ng-container>
     </section>
   </section>
 </section>

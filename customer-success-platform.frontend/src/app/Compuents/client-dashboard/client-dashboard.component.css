@@ -137,26 +137,43 @@ li:hover {
   font-weight: 800;
 }
 
-
 .side-nav {
-  background-color: #f1f1f1; 
+  background-color: #f1f1f1;
   padding: 10px;
 }
 
 .side-nav ul {
-  list-style-type: none; 
+  list-style-type: none;
 }
 
 .side-nav li {
   padding: 10px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .side-nav li:hover {
-  background-color: #dcdcdc; 
+  background-color: #dcdcdc;
 }
 
 .side-nav li h2 {
-  margin-top: 20px; 
-  color: #333; 
+  margin-top: 20px;
+  color: #333;
+}
+
+.export-pdf-btn {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.export-pdf-btn:hover {
+  background-color: #45a049;
 }

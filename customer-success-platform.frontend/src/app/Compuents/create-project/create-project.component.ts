@@ -24,7 +24,8 @@ export class CreateProjectComponent {
       const data = this.projectForm.value;
       this.service.postProjectData(data).subscribe(
         (res) => {
-          alert("Project is created sucessfully")
+          this.projectForm.reset();
+          alert('Project is created sucessfully');
         },
         (error) => {
           console.error('Error occur while posting data');

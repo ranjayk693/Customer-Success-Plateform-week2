@@ -19,38 +19,14 @@ export class LoginPageComponent {
   role = '';
 
   onSubmit() {
-    // this.servcie.getEmail().subscribe((res)=>{
-    //   const array=res.items;
-    //   let data=array.filter((user:any)=>user.email==this.username);
-
-    //   if(data.length){
-    //     console.log(data[0])
-    //     if(data[0].password==this.password && data[0].role=="admin"){
-    //       console.log("Amin login")
-    //       this.router.navigate(['admin']);
-    //     }
-    //     else if(data[0].password==this.password && data[0].role=="auditor"){
-    //       this.router.navigate(['auditor']);
-    //     }
-    //     else if(data[0].password==this.password && data[0].role=="client"){
-    //       this.router.navigate(['/client',data[0].id]);
-    //     }
-    //     else if(data[0].password==this.password && data[0].role=="manager"){
-    //       this.router.navigate(['/manager',data[0].id]);
-    //     }
-    //   }
-    // })
-
     const data = {
       email: this.username,
       password: this.password,
       isAuthentic: false,
     };
     this.servcie.postEmailValidate(data).subscribe((res) => {
-      console.log(res);
       this.role = res.role;
       if (res.isAuthentic) {
-        console.log('Authentic');
         switch (res.role) {
           case 0:
             this.router.navigate(['admin']);

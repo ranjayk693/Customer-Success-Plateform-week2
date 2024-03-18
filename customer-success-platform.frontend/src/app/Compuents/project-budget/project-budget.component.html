@@ -1,7 +1,6 @@
 <div class="form-container">
   <form [formGroup]="projectBudgetForm" (ngSubmit)="onSubmit()">
     <label for="projectId">Project ID</label>
-    <!-- <input type="text" formControlName="projectId" id="projectId" required /> -->
     <select name="" id="projectId" formControlName="projectId">
       <option value="" default hidden>Select the Project IDs</option>
       <option *ngFor="let user of projectIds" [value]="user">{{ user }}</option>

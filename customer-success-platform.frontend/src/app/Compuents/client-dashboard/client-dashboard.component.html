@@ -8,7 +8,7 @@
 
     <!-- header option for logout and name of the manger -->
     <section class="user-info">
-      <span>{{name}} </span>
+      <span>{{ name }} </span>
       <button (click)="logout()">Logout</button>
     </section>
   </section>
@@ -22,11 +22,16 @@
         <li><h2>Setting</h2></li>
       </ul>
     </section>
-    <section class="main-content">
+    <section class="main-content" id="content">
+      <button (click)="SavePDF()" class="export-pdf-btn">Export PDf</button>
       <ng-container [ngSwitch]="activeSection">
-        <app-show-client-general-update *ngSwitchCase="'projectUpdate'"></app-show-client-general-update>
+        <app-show-client-general-update
+          *ngSwitchCase="'projectUpdate'"
+        ></app-show-client-general-update>
         <app-client-meeting *ngSwitchCase="'ShowMeeting'"></app-client-meeting>
-        <app-client-feedback *ngSwitchCase="'AddFeedback'"></app-client-feedback> 
+        <app-client-feedback
+          *ngSwitchCase="'AddFeedback'"
+        ></app-client-feedback>
         <app-show-feedback *ngSwitchCase="'ShowFeedback'"></app-show-feedback>
       </ng-container>
     </section>

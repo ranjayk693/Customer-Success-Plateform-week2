@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-project-manager-dashboard',
@@ -9,41 +11,44 @@ import { AuthService } from '@auth0/auth0-angular';
 export class ProjectManagerDashboardComponent {
   constructor(private auth: AuthService) {}
 
-  // Boolean Value to display the data
-  IsMeeting: boolean = true;
-  IsFeedback: boolean = false;
-  IsProjectUpdate: boolean = false;
-  IsShowProject: boolean = false;
+
   // Harcoded role as authtication part is remaining
-  users: any = [{ name: 'Dipa Di', }];
+  users: any = [{ name: 'Dipa Di' }];
+
+  SavePDF() {
+    const element = document.getElementById('content');
+    if (element) {
+      const width = element.getBoundingClientRect().width;
+      const height = element.getBoundingClientRect().height;
+      const aspectRatio = width / height;
+
+      html2canvas(element, { scale: 1 }).then((canvas) => {
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.width / aspectRatio;
+        const pdf = new jsPDF('l', 'pt', [canvasWidth, canvasHeight]);
+        const imgData = canvas.toDataURL('image/png');
+        pdf.addImage(imgData, 'PNG', 0, 0, canvasWidth, canvasHeight);
+        pdf.save('web-page-content.pdf');
+      });
+    }
+  }
 
   // Making the meeting boolean value true and for rest it false
+  activeSection: string = '';
   onMetting() {
-    this.IsFeedback = false;
-    this.IsProjectUpdate = false;
-    this.IsShowProject = false;
-    this.IsMeeting = true;
+    this.activeSection = 'Addmeeting';
   }
 
   onViewFeedback(): any {
-    this.IsMeeting = false;
-    this.IsProjectUpdate = false;
-    this.IsShowProject = false;
-    this.IsFeedback = true;
+    this.activeSection = 'ShowFeedback';
   }
 
   onAddProjectUpdate() {
-    this.IsMeeting = false;
-    this.IsFeedback = false;
-    this.IsShowProject = false;
-    this.IsProjectUpdate = true;
+    this.activeSection = 'AddProjectUpdate';
   }
 
   onShowProject() {
-    this.IsMeeting = false;
-    this.IsFeedback = false;
-    this.IsProjectUpdate = false;
-    this.IsShowProject = true;
+    this.activeSection = 'ShowProjectUpdate';
   }
 
   logout() {

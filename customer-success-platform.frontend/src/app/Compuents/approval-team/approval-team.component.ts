@@ -48,6 +48,8 @@ export class ApprovalTeamComponent {
       this.service.postApproveTeamData(data).subscribe(
         (response) => {
           alert('Data is sent sucessfully');
+          this.resourceForm.reset();
+          this.resourceForm.get('projectId')!.setValue('');
         },
         (error) => {
           alert('Something went worng while sending data');

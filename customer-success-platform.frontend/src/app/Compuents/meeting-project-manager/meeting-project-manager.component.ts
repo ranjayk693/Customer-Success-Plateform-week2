@@ -68,16 +68,6 @@ export class MeetingProjectManagerComponent {
     }
   }
 
-  // // Update method implimentation
-  // updateMeetingMinute(meetingMinute: any) {
-  //   const index = this.meetingMinutes.findIndex(
-  //     (m) => m.id === meetingMinute.id
-  //   );
-  //   if (index !== -1) {
-  //     this.meetingMinutes[index] = meetingMinute;
-  //   }
-  // }
-
   // Delete method implimentation
   deleteMeetingMinute(id: string) {
     // Deleting from the website

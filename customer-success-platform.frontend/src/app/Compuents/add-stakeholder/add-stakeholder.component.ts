@@ -20,8 +20,6 @@ export class AddStakeholderComponent {
     });
   }
 
-
-
   ngOnInit(): void {
     this.service.getProjectData().subscribe((res) => {
       this.projectIds = res.items.map((item: any) => item.id);
@@ -34,6 +32,8 @@ export class AddStakeholderComponent {
       this.service.postStakeHolder(formData).subscribe(
         (response) => {
           this.projectStakeHolder.reset();
+          this.projectStakeHolder.get('projectId')!.setValue('');
+          this.projectStakeHolder.get('title')!.setValue('');
         },
         (error) => {
           console.error('Error posting data:', error);

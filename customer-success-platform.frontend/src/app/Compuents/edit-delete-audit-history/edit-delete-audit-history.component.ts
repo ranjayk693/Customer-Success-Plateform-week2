@@ -22,9 +22,9 @@ export class EditDeleteAuditHistoryComponent {
       this.service.deleteAuditHistory(id).subscribe(
         (response) => {
           console.log(response);
-          this.projectAuditHistory = this.projectAuditHistory.filter((item) => {
-            item.id !== id;
-          });
+          this.projectAuditHistory = this.projectAuditHistory.filter(
+            (item) => item.id !== id
+          );
         },
         (error) => {
           alert('OOPS! server error');

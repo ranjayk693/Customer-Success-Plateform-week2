@@ -22,9 +22,9 @@ export class EditDeleteStakeholderComponent {
       this.service.deleteStakeHolder(id).subscribe(
         (response) => {
           console.log(response);
-          this.projectStakeholder = this.projectStakeholder.filter((item) => {
-            item.id !== id;
-          });
+          this.projectStakeholder = this.projectStakeholder.filter(
+            (item) => item.id !== id
+          );
         },
         (error) => {
           alert('OOPS! server error');

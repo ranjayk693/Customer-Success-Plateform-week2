@@ -35,6 +35,10 @@ export class AddRiskProflingComponent {
       this.service.postRiskProfile(formData).subscribe(
         (response) => {
           this.ProjectRiskProfiling.reset();
+          this.ProjectRiskProfiling.get('projectId')!.setValue('');
+          this.ProjectRiskProfiling.get('riskType')!.setValue('');
+          this.ProjectRiskProfiling.get('severity')!.setValue('');
+          this.ProjectRiskProfiling.get('impact')!.setValue('');
         },
         (error) => {
           console.error('Error posting data:', error);

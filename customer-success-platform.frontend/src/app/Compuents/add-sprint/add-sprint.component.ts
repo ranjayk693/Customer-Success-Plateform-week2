@@ -22,8 +22,7 @@ export class AddSprintComponent {
   }
 
   ngOnInit(): void {
-    this.service.getPhaseMileStone().subscribe((res) => {
-      // console.log(res);
+    this.service.getProjectData().subscribe((res) => {
       this.projectIds = res.items.map((item: any) => item.id);
     });
   }
@@ -34,6 +33,8 @@ export class AddSprintComponent {
       this.service.postSprint(formData).subscribe(
         (response) => {
           this.projectSprint.reset();
+          this.projectSprint.get('projectId')!.setValue('');
+          this.projectSprint.get('status')!.setValue('');
         },
         (error) => {
           console.error('Error posting data:', error);

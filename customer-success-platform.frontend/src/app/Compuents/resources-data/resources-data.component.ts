@@ -26,7 +26,8 @@ export class ResourcesDataComponent {
     this.service.getProjectData().subscribe(
       (response) => {
         this.projectIds = response.items.map((item: any) => item.id);
-        console.log(this.projectIds);
+        this.resourceForm.reset();
+        this.resourceForm.get('projectId')!.setValue('');
       },
       (error) => {
         console.error(error);

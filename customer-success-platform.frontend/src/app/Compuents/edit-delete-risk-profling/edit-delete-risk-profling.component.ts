@@ -23,9 +23,7 @@ export class EditDeleteRiskProflingComponent {
         (response) => {
           // console.log(response);
           this.projectRiskProfiling = this.projectRiskProfiling.filter(
-            (item) => {
-              item.id !== id;
-            }
+            (item) => item.id !== id
           );
         },
         (error) => {

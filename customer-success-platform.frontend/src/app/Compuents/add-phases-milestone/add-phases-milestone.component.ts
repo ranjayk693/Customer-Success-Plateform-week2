@@ -35,6 +35,9 @@ export class AddPhasesMilestoneComponent {
       this.service.postPhaseMileStone(formData).subscribe(
         (response) => {
           this.projectPhase.reset();
+          this.projectPhase.get('projectId')!.setValue('');
+          this.projectPhase.get('startDate')!.setValue('');
+          this.projectPhase.get('status')!.setValue('');
         },
         (error) => {
           console.error('Error posting data:', error);

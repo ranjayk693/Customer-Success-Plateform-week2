@@ -34,6 +34,8 @@ export class AddAuditHistoryComponent {
       this.service.postAuditHistory(formData).subscribe(
         (response) => {
           this.projectAuditHistory.reset();
+          this.projectAuditHistory.get('projectId')!.setValue('');
+          this.projectAuditHistory.get('dateofAudit')!.setValue('');
         },
         (error) => {
           console.error('Error posting data:', error);

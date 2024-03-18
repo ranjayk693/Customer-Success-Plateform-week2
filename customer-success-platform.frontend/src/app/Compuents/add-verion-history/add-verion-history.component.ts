@@ -36,6 +36,7 @@ export class AddVerionHistoryComponent {
       this.service.postVersionHistory(formData).subscribe(
         (response) => {
           this.projectVerionHistory.reset();
+          this.projectVerionHistory.get('projectId')!.setValue('');
         },
         (error) => {
           console.error('Error posting data:', error);

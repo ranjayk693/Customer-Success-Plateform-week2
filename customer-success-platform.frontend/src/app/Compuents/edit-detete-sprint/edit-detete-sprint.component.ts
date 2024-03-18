@@ -21,9 +21,9 @@ export class EditDeteteSprintComponent {
     if (confirm('Are you sure?')) {
       this.service.deleteSprint(id).subscribe(
         (response) => {
-          this.projectSprint = this.projectSprint.filter((item) => {
-            item.id !== id;
-          });
+          this.projectSprint = this.projectSprint.filter(
+            (item) => item.id !== id
+          );
         },
         (error) => {
           alert('OOPS! server error');

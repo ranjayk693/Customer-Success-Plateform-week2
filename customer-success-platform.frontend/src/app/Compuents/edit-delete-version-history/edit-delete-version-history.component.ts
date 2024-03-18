@@ -4,7 +4,7 @@ import { ServiceService } from '../../Services/service.service';
 @Component({
   selector: 'app-edit-delete-version-history',
   templateUrl: './edit-delete-version-history.component.html',
-  styleUrl: './edit-delete-version-history.component.css'
+  styleUrl: './edit-delete-version-history.component.css',
 })
 export class EditDeleteVersionHistoryComponent {
   projectVerionHistory: any[] = [];
@@ -22,9 +22,9 @@ export class EditDeleteVersionHistoryComponent {
       this.service.deleteVersionHistory(id).subscribe(
         (response) => {
           console.log(response);
-          this.projectVerionHistory = this.projectVerionHistory.filter((item) => {
-            item.id !== id;
-          });
+          this.projectVerionHistory = this.projectVerionHistory.filter(
+            (item) => item.id !== id
+          );
         },
         (error) => {
           alert('OOPS! server error');

@@ -15,15 +15,20 @@ export class AdminDashboardComponent {
   constructor(private router: Router, private auth: AuthService) {}
   users: any = [{ name: 'Chintan sir', role: 'Admin' }];
   activeSection: string = 'ShowClientFeedback';
+
   SavePDF() {
     const element = document.getElementById('content');
     if (element) {
-      html2canvas(element).then((canvas) => {
-        const width = canvas.width;
-        const height = canvas.height;
-        const pdf = new jsPDF('l', 'pt');
+      const width = element.getBoundingClientRect().width;
+      const height = element.getBoundingClientRect().height;
+      const aspectRatio = width / height;
+
+      html2canvas(element, { scale: 1 }).then((canvas) => {
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.width / aspectRatio;
+        const pdf = new jsPDF('l', 'pt', [canvasWidth, canvasHeight]);
         const imgData = canvas.toDataURL('image/png');
-        pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+        pdf.addImage(imgData, 'PNG', 0, 0, canvasWidth, canvasHeight);
         pdf.save('web-page-content.pdf');
       });
     }

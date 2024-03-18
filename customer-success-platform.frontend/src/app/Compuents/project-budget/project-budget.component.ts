@@ -32,6 +32,8 @@ export class ProjectBudgetComponent {
         (response) => {
           console.log('Data posted successfully:', response);
           this.projectBudgetForm.reset();
+          this.projectBudgetForm.get('projectId')!.setValue('');
+          this.projectBudgetForm.get('type')!.setValue('');
         },
         (error) => {
           console.error('Error posting data:', error);

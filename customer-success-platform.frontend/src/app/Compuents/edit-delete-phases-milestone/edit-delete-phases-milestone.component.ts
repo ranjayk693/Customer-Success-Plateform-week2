@@ -21,11 +21,8 @@ export class EditDeletePhasesMilestoneComponent {
     if (confirm('Are you sure?')) {
       this.service.deletePhaseMileStone(id).subscribe(
         (response) => {
-          // console.log(response);
           this.projectPhaseMileStone = this.projectPhaseMileStone.filter(
-            (item) => {
-              item.id !== id;
-            }
+            (item) => item.id !== id
           );
         },
         (error) => {

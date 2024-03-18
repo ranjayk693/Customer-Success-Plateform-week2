@@ -26,8 +26,8 @@
         <li (click)="AddAudit()"><button>+</button>Add AuditHistory</li>
       </ul>
     </section>
- 
-    <section class="main-content">
+
+    <section class="main-content" id="maindiv" id="content">
       <section class="horizontal-nav">
         <ul>
           <li (click)="ShowResources()">Show Resources</li>
@@ -43,30 +43,64 @@
           <li (click)="ShowEsclationMatrix()">Show Esclation Matrix</li>
         </ul>
       </section>
-      <button (click)="SavePDF()" class="export-pdf-btn"  >Export PDf</button>
-      <section class="item" id="content">
+      <section class="item">
+        <button (click)="SavePDF()" class="export-pdf-btn">Export PDf</button>
         <ng-container [ngSwitch]="activeSection">
           <app-create-project *ngSwitchCase="'NewProject'"></app-create-project>
-          <app-resources-data *ngSwitchCase="'AddResources'"></app-resources-data>
+          <app-resources-data
+            *ngSwitchCase="'AddResources'"
+          ></app-resources-data>
           <app-approval-team *ngSwitchCase="'AddApproval'"></app-approval-team>
-          <app-add-stakeholder *ngSwitchCase="'AddStakeHolder'"></app-add-stakeholder>
-          <app-add-phases-milestone  *ngSwitchCase="'AddPhaseMileStone'"></app-add-phases-milestone>
-          <app-add-risk-profling  *ngSwitchCase="'AddRiskProfle'"></app-add-risk-profling>
-          <app-add-sprint  *ngSwitchCase="'AddSprint'"></app-add-sprint>
-          <app-add-audit-history  *ngSwitchCase="'AddAudit'"></app-add-audit-history>
-          <app-add-verion-history *ngSwitchCase="'AddVersion'"></app-add-verion-history>
+          <app-add-stakeholder
+            *ngSwitchCase="'AddStakeHolder'"
+          ></app-add-stakeholder>
+          <app-add-phases-milestone
+            *ngSwitchCase="'AddPhaseMileStone'"
+          ></app-add-phases-milestone>
+          <app-add-risk-profling
+            *ngSwitchCase="'AddRiskProfle'"
+          ></app-add-risk-profling>
+          <app-add-sprint *ngSwitchCase="'AddSprint'"></app-add-sprint>
+          <app-add-audit-history
+            *ngSwitchCase="'AddAudit'"
+          ></app-add-audit-history>
+          <app-add-verion-history
+            *ngSwitchCase="'AddVersion'"
+          ></app-add-verion-history>
           <app-project-budget *ngSwitchCase="'AddBudget'"></app-project-budget>
-          <app-view-approve-team *ngSwitchCase="'ShowApproveTeam'"></app-view-approve-team>
-          <app-view-resources *ngSwitchCase="'ShowResources'"></app-view-resources>
-          <app-show-client-feedback *ngSwitchCase="'ShowClientFeedback'"></app-show-client-feedback>
-          <app-show-update *ngSwitchCase="'ShowProjectUpdate'"></app-show-update>
-          <app-edit-delete-risk-profling *ngSwitchCase="'ShowRisk'"></app-edit-delete-risk-profling> 
-          <app-edit-detete-sprint *ngSwitchCase="'ShowSprint'"></app-edit-detete-sprint>
-          <app-edit-delete-audit-history *ngSwitchCase="'showAudit'"></app-edit-delete-audit-history>
-          <app-edit-delete-phases-milestone *ngSwitchCase="'showPhases'"></app-edit-delete-phases-milestone>
-          <app-edit-delete-stakeholder *ngSwitchCase="'ShowStakeHolder'"></app-edit-delete-stakeholder>
-          <app-edit-delete-version-history *ngSwitchCase="'VersionHistory'"></app-edit-delete-version-history>
-          <app-escalation-matrix *ngSwitchCase="'ShowEscalation'"></app-escalation-matrix>
+          <app-view-approve-team
+            *ngSwitchCase="'ShowApproveTeam'"
+          ></app-view-approve-team>
+          <app-view-resources
+            *ngSwitchCase="'ShowResources'"
+          ></app-view-resources>
+          <app-show-client-feedback
+            *ngSwitchCase="'ShowClientFeedback'"
+          ></app-show-client-feedback>
+          <app-show-update
+            *ngSwitchCase="'ShowProjectUpdate'"
+          ></app-show-update>
+          <app-edit-delete-risk-profling
+            *ngSwitchCase="'ShowRisk'"
+          ></app-edit-delete-risk-profling>
+          <app-edit-detete-sprint
+            *ngSwitchCase="'ShowSprint'"
+          ></app-edit-detete-sprint>
+          <app-edit-delete-audit-history
+            *ngSwitchCase="'showAudit'"
+          ></app-edit-delete-audit-history>
+          <app-edit-delete-phases-milestone
+            *ngSwitchCase="'showPhases'"
+          ></app-edit-delete-phases-milestone>
+          <app-edit-delete-stakeholder
+            *ngSwitchCase="'ShowStakeHolder'"
+          ></app-edit-delete-stakeholder>
+          <app-edit-delete-version-history
+            *ngSwitchCase="'VersionHistory'"
+          ></app-edit-delete-version-history>
+          <app-escalation-matrix
+            *ngSwitchCase="'ShowEscalation'"
+          ></app-escalation-matrix>
         </ng-container>
       </section>
     </section>
