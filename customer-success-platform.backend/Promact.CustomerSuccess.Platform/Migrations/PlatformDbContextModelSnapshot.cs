@@ -819,9 +819,8 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("role")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("role")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

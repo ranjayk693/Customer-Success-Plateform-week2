@@ -9,13 +9,16 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrl: './auditor-dashboard.component.css',
 })
 export class AuditorDashboardComponent {
-  constructor(private router:Router){}
+  constructor(private router: Router, private auth: AuthService) {}
   users: any = [{ name: 'Audiotr', role: 'Auditor' }];
 
   logout() {
-    this.router.navigate([''])
+    this.auth.logout({
+      logoutParams: { returnTo: document.location.origin },
+    });
   }
 
+  /*For Switch case */
   activeSection: string = '';
 
   createProject() {
@@ -30,31 +33,31 @@ export class AuditorDashboardComponent {
     this.activeSection = 'AddApproval';
   }
 
-  AddStakeHolder(){
-    this.activeSection='AddStakeHolder';
+  AddStakeHolder() {
+    this.activeSection = 'AddStakeHolder';
   }
 
-  AddBudget(){
-    this.activeSection='AddBudget'
+  AddBudget() {
+    this.activeSection = 'AddBudget';
   }
 
-  AddRisk(){
-    this.activeSection='AddRiskProfle'
+  AddRisk() {
+    this.activeSection = 'AddRiskProfle';
   }
-  AddSprint(){
-    this.activeSection='AddSprint'
+  AddSprint() {
+    this.activeSection = 'AddSprint';
   }
-  AddVerion(){
-    this.activeSection='AddVersion'
+  AddVerion() {
+    this.activeSection = 'AddVersion';
   }
-  AddAudit(){
-    this.activeSection="AddAudit"
+  AddAudit() {
+    this.activeSection = 'AddAudit';
   }
-  AddPhases(){
-    this.activeSection='AddPhaseMileStone'
+  AddPhases() {
+    this.activeSection = 'AddPhaseMileStone';
   }
   // Define other methods similarly
-  
+
   ShowApproveTeam() {
     this.activeSection = 'ShowApproveTeam';
   }
@@ -63,30 +66,28 @@ export class AuditorDashboardComponent {
     this.activeSection = 'ShowResources';
   }
 
-
-
-  ShowRisk(){
-    this.activeSection='ShowRisk'
+  ShowRisk() {
+    this.activeSection = 'ShowRisk';
   }
-  ShowSprint(){
-    this.activeSection='ShowSprint'
+  ShowSprint() {
+    this.activeSection = 'ShowSprint';
   }
-  ShowVersion(){
-    this.activeSection='VersionHistory'
+  ShowVersion() {
+    this.activeSection = 'VersionHistory';
   }
-  ShowAudit(){
-    this.activeSection='showAudit'
+  ShowAudit() {
+    this.activeSection = 'showAudit';
   }
-  ShowProjectUpdate(){
-    this.activeSection='ShowProjectUpdate'
+  ShowProjectUpdate() {
+    this.activeSection = 'ShowProjectUpdate';
   }
-  ShowClientFeedback(){
-    this.activeSection='ShowClientFeedback'
+  ShowClientFeedback() {
+    this.activeSection = 'ShowClientFeedback';
   }
-  ShowStakeHolder(){
-    this.activeSection='ShowStakeHolder'
+  ShowStakeHolder() {
+    this.activeSection = 'ShowStakeHolder';
   }
-  ShowPhases(){
-    this.activeSection='showPhases'
+  ShowPhases() {
+    this.activeSection = 'showPhases';
   }
 }

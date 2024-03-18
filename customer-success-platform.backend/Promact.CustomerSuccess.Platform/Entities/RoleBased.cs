@@ -10,7 +10,7 @@ namespace Promact.CustomerSuccess.Platform.Entities
         public string name { get; set; }
         public string email {  get; set; }  
         public string password { get; set; }
-        public string role { get; set; }
+        public RoleType role { get; set; }
         public virtual Project? Project { get; set; }
     }
 }

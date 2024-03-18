@@ -1,4 +1,6 @@
-﻿namespace Promact.CustomerSuccess.Platform.Services.Dtos
+﻿using Promact.CustomerSuccess.Platform.Entities;
+
+namespace Promact.CustomerSuccess.Platform.Services.Dtos
 {
     public class CreateRoleBasedDto
     {
@@ -6,6 +8,6 @@
         public string name { get; set; }
         public string email { get; set; }
         public string password { get; set; }
-        public string role { get; set; }
+        public RoleType role { get; set; }
     }
 }

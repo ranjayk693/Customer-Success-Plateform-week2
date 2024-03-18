@@ -21,9 +21,9 @@ namespace Promact.CustomerSuccess.Platform.Services.projects
             
             EmailDto emailDto = new EmailDto
             {
-                To="rannjayk693@gmail.com",
+                To="ranjay.kumar110519@marwadiuniversity.ac.in",
                 Subject= "Project Created Notification",
-                Body = "New Project has been created"
+                Body = $"Dear Admin,Project name {input.Name} has been created please with desription {input.Description}"
 
             };
             try

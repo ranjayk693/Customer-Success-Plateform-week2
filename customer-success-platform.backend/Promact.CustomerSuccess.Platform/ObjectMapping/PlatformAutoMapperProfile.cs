@@ -77,5 +77,9 @@ public class PlatformAutoMapperProfile : Profile
         CreateMap<CreateRoleBasedDto, RoleBased>();
         CreateMap<UpdateRoleBasedDto, RoleBased>();
         CreateMap<RoleBased, RoleBasedDto>().ReverseMap();
+
+        /* Create your AutoMapper object mappings here  for EmailValidator*/
+        CreateMap<EmailValidateDto, EmailValidate>();
+        CreateMap<EmailValidate, EmailValidateDto>().ReverseMap();
     }
 }

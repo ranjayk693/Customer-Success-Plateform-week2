@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServiceService } from '../../Services/service.service';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-project-manager-dashboard',
@@ -7,16 +7,7 @@ import { ServiceService } from '../../Services/service.service';
   styleUrl: './project-manager-dashboard.component.css',
 })
 export class ProjectManagerDashboardComponent {
-  // HardCoded Data as not required according to documentation
-  projects: any = [
-    {
-      projectName: 'Food on time',
-      startedOn: '12 Feb 24',
-      status: 'On going',
-      projectManager: 'Dipa Manjumdar',
-      members: 6,
-    },
-  ];
+  constructor(private auth: AuthService) {}
 
   // Boolean Value to display the data
   IsMeeting: boolean = true;
@@ -24,7 +15,7 @@ export class ProjectManagerDashboardComponent {
   IsProjectUpdate: boolean = false;
   IsShowProject: boolean = false;
   // Harcoded role as authtication part is remaining
-  users: any = [{ name: 'Dipa Di', role: 'project Manager' }];
+  users: any = [{ name: 'Dipa Di', }];
 
   // Making the meeting boolean value true and for rest it false
   onMetting() {
@@ -56,6 +47,8 @@ export class ProjectManagerDashboardComponent {
   }
 
   logout() {
-    // logout
+    this.auth.logout({
+      logoutParams: { returnTo: document.location.origin },
+    });
   }
 }

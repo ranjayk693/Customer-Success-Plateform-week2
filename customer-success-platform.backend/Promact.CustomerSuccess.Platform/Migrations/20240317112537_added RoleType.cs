@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Promact.CustomerSuccess.Platform.Migrations
 {
     /// <inheritdoc />
-    public partial class Enititymodification : Migration
+    public partial class addedRoleType : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -778,6 +778,30 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "auditHistory",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProjectId = table.Column<Guid>(type: "uuid", nullable: false),
+                    DateofAudit = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ReviewedBy = table.Column<string>(type: "text", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: false),
+                    ReviewedSection = table.Column<string>(type: "text", nullable: false),
+                    CommentQueries = table.Column<string>(type: "text", nullable: false),
+                    ActionItem = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_auditHistory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_auditHistory_Project_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Project",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ClientFeedbacks",
                 columns: table => new
                 {
@@ -866,6 +890,58 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                     table.PrimaryKey("PK_Resources", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Resources_Project_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Project",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "roleBased",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProjectId = table.Column<Guid>(type: "uuid", nullable: false),
+                    name = table.Column<string>(type: "text", nullable: false),
+                    email = table.Column<string>(type: "text", nullable: false),
+                    password = table.Column<string>(type: "text", nullable: false),
+                    role = table.Column<int>(type: "integer", nullable: false),
+                    CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    CreatorId = table.Column<Guid>(type: "uuid", nullable: true),
+                    LastModificationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    LastModifierId = table.Column<Guid>(type: "uuid", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_roleBased", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_roleBased_Project_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Project",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "versionHistory",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProjectId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Version = table.Column<int>(type: "integer", nullable: false),
+                    Type = table.Column<string>(type: "text", nullable: false),
+                    Change = table.Column<string>(type: "text", nullable: false),
+                    ChangeReason = table.Column<string>(type: "text", nullable: false),
+                    CreatedBy = table.Column<string>(type: "text", nullable: false),
+                    RevisionDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ApprovalDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ApprovedBy = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_versionHistory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_versionHistory_Project_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Project",
                         principalColumn: "Id",
@@ -1018,10 +1094,11 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                     ProjectId = table.Column<Guid>(type: "uuid", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false),
                     StartDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
-                    Comments = table.Column<string>(type: "text", nullable: false),
+                    CompletionDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ApprovalDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Status = table.Column<int>(type: "integer", nullable: false),
+                    RevisedCompletionDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    Comments = table.Column<string>(type: "text", nullable: false),
                     ExtraProperties = table.Column<string>(type: "text", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: false),
                     CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -1057,10 +1134,7 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Type = table.Column<int>(type: "integer", nullable: false),
                     DurationInMonths = table.Column<int>(type: "integer", nullable: true),
-                    ContractDuration = table.Column<int>(type: "integer", nullable: true),
                     BudgetedHours = table.Column<int>(type: "integer", nullable: true),
-                    BudgetedCost = table.Column<double>(type: "double precision", nullable: false),
-                    Currency = table.Column<string>(type: "text", nullable: false),
                     ProjectId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     CreatorId = table.Column<Guid>(type: "uuid", nullable: true),
@@ -1135,8 +1209,12 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     ProjectId = table.Column<Guid>(type: "uuid", nullable: false),
                     RiskType = table.Column<int>(type: "integer", nullable: false),
+                    description = table.Column<string>(type: "text", nullable: false),
                     Severity = table.Column<int>(type: "integer", nullable: false),
                     Impact = table.Column<int>(type: "integer", nullable: false),
+                    RemedialSteps = table.Column<string>(type: "text", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: false),
+                    ClosureDate = table.Column<DateOnly>(type: "date", nullable: false),
                     ExtraProperties = table.Column<string>(type: "text", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: false),
                     CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -1160,6 +1238,44 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_RiskProfiles_Users_LastModifierId",
+                        column: x => x.LastModifierId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "stakeHolder",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProjectId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Title = table.Column<int>(type: "integer", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Contact = table.Column<string>(type: "text", nullable: false),
+                    email = table.Column<string>(type: "text", nullable: false),
+                    ExtraProperties = table.Column<string>(type: "text", nullable: false),
+                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: false),
+                    CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    CreatorId = table.Column<Guid>(type: "uuid", nullable: true),
+                    LastModificationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    LastModifierId = table.Column<Guid>(type: "uuid", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_stakeHolder", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_stakeHolder_Project_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Project",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_stakeHolder_Users_CreatorId",
+                        column: x => x.CreatorId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_stakeHolder_Users_LastModifierId",
                         column: x => x.LastModifierId,
                         principalTable: "Users",
                         principalColumn: "Id");
@@ -1208,12 +1324,11 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     PhaseMilestoneId = table.Column<Guid>(type: "uuid", nullable: false),
+                    SprintNumber = table.Column<int>(type: "integer", nullable: false),
                     StartDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     EndDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Status = table.Column<int>(type: "integer", nullable: false),
                     Comments = table.Column<string>(type: "text", nullable: false),
-                    Goals = table.Column<string>(type: "text", nullable: false),
-                    SprintNumber = table.Column<int>(type: "integer", nullable: false),
                     ExtraProperties = table.Column<string>(type: "text", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: false),
                     CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -1237,41 +1352,6 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Sprints_Users_LastModifierId",
-                        column: x => x.LastModifierId,
-                        principalTable: "Users",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RemediationStep",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
-                    RiskProfileId = table.Column<Guid>(type: "uuid", nullable: false),
-                    ExtraProperties = table.Column<string>(type: "text", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: false),
-                    CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    CreatorId = table.Column<Guid>(type: "uuid", nullable: true),
-                    LastModificationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    LastModifierId = table.Column<Guid>(type: "uuid", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RemediationStep", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_RemediationStep_RiskProfiles_RiskProfileId",
-                        column: x => x.RiskProfileId,
-                        principalTable: "RiskProfiles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RemediationStep_Users_CreatorId",
-                        column: x => x.CreatorId,
-                        principalTable: "Users",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_RemediationStep_Users_LastModifierId",
                         column: x => x.LastModifierId,
                         principalTable: "Users",
                         principalColumn: "Id");
@@ -1472,6 +1552,11 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                 column: "ProjectId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_auditHistory_ProjectId",
+                table: "auditHistory",
+                column: "ProjectId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ClientFeedbacks_ProjectId",
                 table: "ClientFeedbacks",
                 column: "ProjectId");
@@ -1607,21 +1692,6 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                 column: "ProjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RemediationStep_CreatorId",
-                table: "RemediationStep",
-                column: "CreatorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RemediationStep_LastModifierId",
-                table: "RemediationStep",
-                column: "LastModifierId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RemediationStep_RiskProfileId",
-                table: "RemediationStep",
-                column: "RiskProfileId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Resources_ProjectId",
                 table: "Resources",
                 column: "ProjectId");
@@ -1642,6 +1712,11 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                 column: "ProjectId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_roleBased_ProjectId",
+                table: "roleBased",
+                column: "ProjectId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Sprints_CreatorId",
                 table: "Sprints",
                 column: "CreatorId");
@@ -1657,9 +1732,29 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                 column: "PhaseMilestoneId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_stakeHolder_CreatorId",
+                table: "stakeHolder",
+                column: "CreatorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_stakeHolder_LastModifierId",
+                table: "stakeHolder",
+                column: "LastModifierId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_stakeHolder_ProjectId",
+                table: "stakeHolder",
+                column: "ProjectId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Users_TenantId",
                 table: "Users",
                 column: "TenantId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_versionHistory_ProjectId",
+                table: "versionHistory",
+                column: "ProjectId");
         }
 
         /// <inheritdoc />
@@ -1735,6 +1830,9 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                 name: "approvedTeams");
 
             migrationBuilder.DropTable(
+                name: "auditHistory");
+
+            migrationBuilder.DropTable(
                 name: "ClientFeedbacks");
 
             migrationBuilder.DropTable(
@@ -1762,13 +1860,22 @@ namespace Promact.CustomerSuccess.Platform.Migrations
                 name: "ProjectUpdates");
 
             migrationBuilder.DropTable(
-                name: "RemediationStep");
-
-            migrationBuilder.DropTable(
                 name: "Resources");
 
             migrationBuilder.DropTable(
+                name: "RiskProfiles");
+
+            migrationBuilder.DropTable(
+                name: "roleBased");
+
+            migrationBuilder.DropTable(
                 name: "Sprints");
+
+            migrationBuilder.DropTable(
+                name: "stakeHolder");
+
+            migrationBuilder.DropTable(
+                name: "versionHistory");
 
             migrationBuilder.DropTable(
                 name: "AbpEntityChanges");
@@ -1790,9 +1897,6 @@ namespace Promact.CustomerSuccess.Platform.Migrations
 
             migrationBuilder.DropTable(
                 name: "OpenIddictAuthorizations");
-
-            migrationBuilder.DropTable(
-                name: "RiskProfiles");
 
             migrationBuilder.DropTable(
                 name: "PhaseMilestones");

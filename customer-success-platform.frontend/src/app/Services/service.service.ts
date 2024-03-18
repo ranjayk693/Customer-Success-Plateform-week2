@@ -280,12 +280,19 @@ export class ServiceService {
     return this.http.get('https://localhost:44347/api/app/role-based');
   }
 
-  getEmailById(id:string):Observable<any>{
-    return this.http.get(`https://localhost:44347/api/app/role-based/${id}`)
+  getEmailById(id: string): Observable<any> {
+    return this.http.get(`https://localhost:44347/api/app/role-based/${id}`);
   }
 
-
-
+  /* */
+  /*Password authentication and role assigning for the email */
+  postEmailValidate(data: any): Observable<any> {
+    console.log('test');
+    return this.http.post(
+      'https://localhost:44347/api/app/role-based/validate-email',
+      data
+    );
+  }
   /*This portion store the project ID */
-  id:string='';
+  id: string = '';
 }
